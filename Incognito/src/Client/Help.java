@@ -1,5 +1,7 @@
 package Client;
 
+import java.util.ArrayList;
+
 /**
  * Created by Matthew on 11/12/2016.
  */
@@ -8,8 +10,8 @@ public class Help {
     public Help() {
 
     }
-    /*
-    private void helpMenu() {
+
+    public void helpMenu(ArrayList<String> displayHistory) {
         System.out.println("help");
         String helpMenu = "help - display all valid commands\nscan - \nclear - clears console of past commands\n" +
                 "ping - \nreport - requests the creation of the exportable report\nexit - exits out of Incognito";
@@ -19,11 +21,11 @@ public class Help {
         }
         output += helpMenu;
         displayHistory.add(helpMenu);
-        consoleOutput.setText(output);
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
+        Console.consoleOutput.setText(output);
+        Console.consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
-    private void help(String filter) {
+    public void help(ArrayList<String> displayHistory, String filter) {
         System.out.println("help");
         String specificHelp = "";
         switch (filter) {
@@ -43,7 +45,7 @@ public class Help {
                 specificHelp = "ping - ";
                 break;
             default:
-                helpMenu();
+                helpMenu(displayHistory);
         }
         String output = "";
         for (String command : displayHistory) {
@@ -51,7 +53,7 @@ public class Help {
         }
         output += specificHelp;
         displayHistory.add(specificHelp);
-        consoleOutput.setText(output);
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
-    }*/
+        Console.consoleOutput.setText(output);
+        Console.consoleOutput.setScrollTop(Double.MAX_VALUE);
+    }
 }
