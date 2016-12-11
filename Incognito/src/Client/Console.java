@@ -13,6 +13,7 @@ public class Console extends BorderPane{
     private ArrayList<String> displayHistory;
     private ArrayList<String> commands;
     private int index = 0;
+    private String[] commandWords;
 
     public Console() {
         getCommands();
@@ -25,6 +26,8 @@ public class Console extends BorderPane{
         consoleOutput.setEditable(false);
         setCenter(consoleOutput);
         setBottom(consoleInput);
+
+        consoleInput.requestFocus();
 
         consoleInput.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
@@ -53,17 +56,27 @@ public class Console extends BorderPane{
 
     private void consoleInputHandler(String command) {
         command = command.toLowerCase();
-
-        if (isCommand(command)) {
+        commandWords = command.split("\\s+");
+        displayHistory.add(command);
+        if (isCommand(commandWords[0])) {
             consoleHistory.add(0,command);
-            displayHistory.add(command);
             updateOutput();
-            switch (command) {
+            switch (commandWords[0]) {
                 case "help":
-                    System.out.println("help");
-                    help();
+                    if (commandWords.length > 2) {
+                        displayErrorMessage();
+                    } else if (commandWords.length == 2){
+                        help(commandWords[1]);
+                    } else {
+                        helpMenu();
+                    }
                     break;
                 case "scan":
+                    if (commandWords.length == 1) {
+                        help("scan");
+                    } else {
+                        scan(command);
+                    }
                     break;
                 case "clear":
                     consoleOutput.clear();
@@ -96,24 +109,52 @@ public class Console extends BorderPane{
         consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
-    private void help() {
+    private void helpMenu() {
         System.out.println("help");
+        String helpMenu = "help - display all valid commands\nclear - clears console of past commands";
         String output = "";
         for (String command : displayHistory) {
             output += command + "\n";
         }
-        output += "help - display all valid commands\nclear - clears command history";
+        output += helpMenu;
+        displayHistory.add(helpMenu);
         consoleOutput.setText(output);
         consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
-    private void displayErrorMessage() {
+    private void help(String filter) {
+        System.out.println("help");
+        String specificHelp;
+        switch (filter) {
+            case "scan":
+                specificHelp = "scan - "
+                break;
+            case "clear":
+                specificHelp = "clear - clears console of past commands";
+                break;
+            default:
+                helpMenu();
+        }
         String output = "";
         for (String command : displayHistory) {
             output += command + "\n";
         }
-        output += "Invalid command entered...";
-        displayHistory.add("Invalid command entered...");
+        output += specificHelp;
+    }
+
+    private void scan(String... args) {
+        System.out.println(args);
+
+    }
+
+    private void displayErrorMessage() {
+        String invalid = "Invalid command entered...";
+        String output = "";
+        for (String command : displayHistory) {
+            output += command + "\n";
+        }
+        output += invalid;
+        displayHistory.add(invalid);
         consoleOutput.setText(output);
         consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
