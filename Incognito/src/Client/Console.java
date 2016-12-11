@@ -1,10 +1,13 @@
 package sample;
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Console extends BorderPane{
     private TextField consoleInput;
@@ -12,11 +15,18 @@ public class Console extends BorderPane{
     private ArrayList<String> consoleHistory;
     private ArrayList<String> displayHistory;
     private ArrayList<String> commands;
+    private ArrayList<String> scans;
     private int index = 0;
     private String[] commandWords;
 
+    //TODO: How do I want the output of these commands to be shown....
+    //TODO: I guess in the console output window...
+    //TODO: How much do I want to allow the user to do?
+    //TODO: I think get the basics done, then if there is time make it more advanced...
+
     public Console() {
         getCommands();
+        getScans();
         consoleInput = new TextField();
         consoleOutput = new TextArea();
         consoleHistory = new ArrayList<>();
@@ -26,8 +36,6 @@ public class Console extends BorderPane{
         consoleOutput.setEditable(false);
         setCenter(consoleOutput);
         setBottom(consoleInput);
-
-        consoleInput.requestFocus();
 
         consoleInput.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
@@ -75,29 +83,20 @@ public class Console extends BorderPane{
                     if (commandWords.length == 1) {
                         help("scan");
                     } else {
-                        scan(command);
+                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length-1);
+                        scan(followingCommands);
                     }
                     break;
                 case "clear":
                     consoleOutput.clear();
                     displayHistory.clear();
                     break;
+                case "exit":
+                    Platform.exit();
             }
         } else {
             displayErrorMessage();
         }
-    }
-
-    private boolean isCommand(String command) {
-        return commands.contains(command);
-    }
-
-    private void getCommands() {
-        commands = new ArrayList<>();
-        commands.add("help");
-        commands.add("scan");
-        commands.add("ping");
-        commands.add("clear");
     }
 
     private void updateOutput() {
@@ -124,10 +123,10 @@ public class Console extends BorderPane{
 
     private void help(String filter) {
         System.out.println("help");
-        String specificHelp;
+        String specificHelp = "";
         switch (filter) {
             case "scan":
-                specificHelp = "scan - "
+                specificHelp = "scan - ";
                 break;
             case "clear":
                 specificHelp = "clear - clears console of past commands";
@@ -140,11 +139,44 @@ public class Console extends BorderPane{
             output += command + "\n";
         }
         output += specificHelp;
+        displayHistory.add(specificHelp);
+        consoleOutput.setText(output);
+        consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
-    private void scan(String... args) {
-        System.out.println(args);
+    private void scan(List<String> arguments) {
+        boolean proceed = true;
+        System.out.println("we get in scan");
+        for (String argument : arguments) {
+            System.out.println(argument);
+            if (!isScan(argument)) {
+                displayErrorMessage();
+                proceed = false;
+                break;
+            }
+        }
+        if (proceed) {
+            createScan(arguments);
+        }
+    }
 
+    private void createScan(List<String> arguments) {
+        //TODO: Set up scan with options in arguments, so are they looking for the OS? Anti virus? ETC...
+        boolean os, av, fw = false;
+        for (String argument : arguments) {
+            System.out.println(argument);
+            switch (argument) {
+                case "-o":
+                    os = true;
+                    break;
+                case "-av":
+                    av = true;
+                    break;
+                case "-fw":
+                    fw = true;
+                    break;
+            }
+        }
     }
 
     private void displayErrorMessage() {
@@ -157,6 +189,63 @@ public class Console extends BorderPane{
         displayHistory.add(invalid);
         consoleOutput.setText(output);
         consoleOutput.setScrollTop(Double.MAX_VALUE);
+    }
+
+    private boolean isCommand(String command) {
+        return commands.contains(command);
+    }
+    private boolean isScan(String command) {
+        System.out.println("we get in isScan");
+        System.out.println("isScan command: " + command);
+        return scans.contains(command);
+    }
+
+    private void getCommands() {
+        //TODO: Work out all of the commands that will be available
+        commands = new ArrayList<>();
+        commands.add("help");
+        commands.add("scan");
+        commands.add("ping");
+        commands.add("clear");
+        commands.add("report");
+        commands.add("exit");
+    }
+
+    private void getScans() {
+        //TODO: work out all of the possible scans that wil be available
+        scans = new ArrayList<>();
+        scans.add("-o");
+        scans.add("-fw");
+        scans.add("-av");
+    }
+
+    private boolean isIP(String ip) {
+        //TODO: take arguments after scan and check if it is an IP address if the argument does not match any scan options
+        if (ip.isEmpty()) {
+            return false;
+        }
+        String[] segments = ip.split("\\.");
+        if (segments.length != 4) {
+            return false;
+        }
+        if (ip.contains("-")) {
+            //TODO: I think I need to iterate through all of the segments, check which has the "-"
+            //TODO: remember which has and then act accordingly
+        }
+        for (String segment : segments) {
+            if (segment.length() != 3 || Integer.parseInt(segment) > 255 || Integer.parseInt(segment) < 0) {
+                displayErrorMessage();
+                return false;
+            }
+        }
+        System.out.println("Valid IP address...");
+        return true;
+    }
+
+    private void produceReport() {
+        //TODO: Work out a way of asking the user if they are sure they want to produce a report
+        //TODO: and then if "Yes", produce the report..
+        //TODO: I could have a boolean and then if input is yes or no while boolean true, then export report....
     }
 
 }
