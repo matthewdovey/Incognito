@@ -1,4 +1,4 @@
-package sample;
+package Client;
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -63,6 +63,7 @@ public class Console extends BorderPane{
     }
 
     private void consoleInputHandler(String command) {
+        //TODO: pretty sure I can shorten the code as I have duplicate code.
         command = command.toLowerCase();
         commandWords = command.split("\\s+");
         displayHistory.add(command);
@@ -88,11 +89,36 @@ public class Console extends BorderPane{
                     }
                     break;
                 case "clear":
-                    consoleOutput.clear();
-                    displayHistory.clear();
+                    if (commandWords.length > 1) {
+                        displayErrorMessage();
+                    } else {
+                        consoleOutput.clear();
+                        displayHistory.clear();
+                    }
+                    break;
+                case "ping":
+                    if (commandWords.length == 1 || commandWords.length > 2) {
+                        help("ping");
+                    } else if (!isIP(commandWords[1])){
+                        displayIpErrorMessage();
+                    } else {
+                        ping(commandWords[1]);
+                    }
+                    break;
+                case "report":
+                    if (commandWords.length == 1) {
+                        help("report");
+                    } else {
+                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length-1);
+                    }
                     break;
                 case "exit":
-                    Platform.exit();
+                    if (commandWords.length == 1) {
+                        Platform.exit();
+                    } else {
+                        displayErrorMessage();
+                    }
+                    break;
             }
         } else {
             displayErrorMessage();
@@ -110,7 +136,8 @@ public class Console extends BorderPane{
 
     private void helpMenu() {
         System.out.println("help");
-        String helpMenu = "help - display all valid commands\nclear - clears console of past commands";
+        String helpMenu = "help - display all valid commands\nscan - \nclear - clears console of past commands\n" +
+                "ping - \nreport - requests the creation of the exportable report\nexit - exits out of Incognito";
         String output = "";
         for (String command : displayHistory) {
             output += command + "\n";
@@ -130,6 +157,15 @@ public class Console extends BorderPane{
                 break;
             case "clear":
                 specificHelp = "clear - clears console of past commands";
+                break;
+            case "exit":
+                specificHelp = "exit - exits out of Incognito";
+                break;
+            case "report":
+                specificHelp = "report - requests the creation of the exportable report";
+                break;
+            case "ping":
+                specificHelp = "ping - ";
                 break;
             default:
                 helpMenu();
@@ -162,7 +198,7 @@ public class Console extends BorderPane{
 
     private void createScan(List<String> arguments) {
         //TODO: Set up scan with options in arguments, so are they looking for the OS? Anti virus? ETC...
-        boolean os, av, fw = false;
+        boolean os, av, fw, all = false;
         for (String argument : arguments) {
             System.out.println(argument);
             switch (argument) {
@@ -174,6 +210,9 @@ public class Console extends BorderPane{
                     break;
                 case "-fw":
                     fw = true;
+                    break;
+                case "-all":
+                    all = true;
                     break;
             }
         }
@@ -191,14 +230,22 @@ public class Console extends BorderPane{
         consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
+    private void displayIpErrorMessage() {
+        String invalid = "Invalid ip entered...";
+        String output = "";
+        for (String command : displayHistory) {
+            output += command + "\n";
+        }
+        output += invalid;
+        displayHistory.add(invalid);
+        consoleOutput.setText(output);
+        consoleOutput.setScrollTop(Double.MAX_VALUE);
+    }
+
     private boolean isCommand(String command) {
         return commands.contains(command);
     }
-    private boolean isScan(String command) {
-        System.out.println("we get in isScan");
-        System.out.println("isScan command: " + command);
-        return scans.contains(command);
-    }
+    private boolean isScan(String command) { return scans.contains(command); }
 
     private void getCommands() {
         //TODO: Work out all of the commands that will be available
@@ -217,10 +264,14 @@ public class Console extends BorderPane{
         scans.add("-o");
         scans.add("-fw");
         scans.add("-av");
+        scans.add("-p");
+        scans.add("-pAll");
+        scans.add("-all");
     }
 
     private boolean isIP(String ip) {
         //TODO: take arguments after scan and check if it is an IP address if the argument does not match any scan options
+        int count = 0;
         if (ip.isEmpty()) {
             return false;
         }
@@ -229,6 +280,13 @@ public class Console extends BorderPane{
             return false;
         }
         if (ip.contains("-")) {
+            for (String segment : segments) {
+                if (segment.contains("-")) {
+                    //TODO: might need to implement this into the for loop below as
+                    //TODO: the segment length check will return false as the length > 3
+                }
+                count++;
+            }
             //TODO: I think I need to iterate through all of the segments, check which has the "-"
             //TODO: remember which has and then act accordingly
         }
@@ -240,6 +298,10 @@ public class Console extends BorderPane{
         }
         System.out.println("Valid IP address...");
         return true;
+    }
+
+    private void ping(String ip) {
+        System.out.println("Ping");
     }
 
     private void produceReport() {
