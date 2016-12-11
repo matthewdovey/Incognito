@@ -18,6 +18,7 @@ public class Console extends BorderPane{
     private ArrayList<String> scans;
     private int index = 0;
     private String[] commandWords;
+    private Scan scannner;
 
     //TODO: How do I want the output of these commands to be shown....
     //TODO: I guess in the console output window...
@@ -25,8 +26,8 @@ public class Console extends BorderPane{
     //TODO: I think get the basics done, then if there is time make it more advanced...
 
     public Console() {
+        scannner = new Scan();
         getCommands();
-        getScans();
         consoleInput = new TextField();
         consoleOutput = new TextArea();
         consoleHistory = new ArrayList<>();
@@ -84,8 +85,10 @@ public class Console extends BorderPane{
                     if (commandWords.length == 1) {
                         help("scan");
                     } else {
-                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length-1);
-                        scan(followingCommands);
+                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length);
+                        if (!scannner.scan(followingCommands)) {
+                            displayErrorMessage();
+                        }
                     }
                     break;
                 case "clear":
@@ -109,7 +112,7 @@ public class Console extends BorderPane{
                     if (commandWords.length == 1) {
                         help("report");
                     } else {
-                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length-1);
+                        List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length);
                     }
                     break;
                 case "exit":
@@ -180,44 +183,6 @@ public class Console extends BorderPane{
         consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
-    private void scan(List<String> arguments) {
-        boolean proceed = true;
-        System.out.println("we get in scan");
-        for (String argument : arguments) {
-            System.out.println(argument);
-            if (!isScan(argument)) {
-                displayErrorMessage();
-                proceed = false;
-                break;
-            }
-        }
-        if (proceed) {
-            createScan(arguments);
-        }
-    }
-
-    private void createScan(List<String> arguments) {
-        //TODO: Set up scan with options in arguments, so are they looking for the OS? Anti virus? ETC...
-        boolean os, av, fw, all = false;
-        for (String argument : arguments) {
-            System.out.println(argument);
-            switch (argument) {
-                case "-o":
-                    os = true;
-                    break;
-                case "-av":
-                    av = true;
-                    break;
-                case "-fw":
-                    fw = true;
-                    break;
-                case "-all":
-                    all = true;
-                    break;
-            }
-        }
-    }
-
     private void displayErrorMessage() {
         String invalid = "Invalid command entered...";
         String output = "";
@@ -245,7 +210,6 @@ public class Console extends BorderPane{
     private boolean isCommand(String command) {
         return commands.contains(command);
     }
-    private boolean isScan(String command) { return scans.contains(command); }
 
     private void getCommands() {
         //TODO: Work out all of the commands that will be available
@@ -256,17 +220,6 @@ public class Console extends BorderPane{
         commands.add("clear");
         commands.add("report");
         commands.add("exit");
-    }
-
-    private void getScans() {
-        //TODO: work out all of the possible scans that wil be available
-        scans = new ArrayList<>();
-        scans.add("-o");
-        scans.add("-fw");
-        scans.add("-av");
-        scans.add("-p");
-        scans.add("-pAll");
-        scans.add("-all");
     }
 
     private boolean isIP(String ip) {

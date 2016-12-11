@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,12 +11,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" prefHeight="400.0" prefWidth="1000.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
+<?import Client.Console?>
+<GridPane alignment="center" hgap="10" prefHeight="400.0" prefWidth="1000.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -29,15 +26,7 @@
          <left>
             <BorderPane prefHeight="369.0" prefWidth="615.0" BorderPane.alignment="CENTER">
                <center>
-                  <Pane prefHeight="340.0" prefWidth="255.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fitHeight="307.0" fitWidth="585.0" layoutX="20.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
-                        <Circle fill="#73787c" layoutX="188.0" layoutY="170.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#777c80" layoutX="289.0" layoutY="170.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#7a7f83" layoutX="387.0" layoutY="170.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#dbdee1" height="67.0" layoutX="256.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="67.0" />
-                        <Line endX="100.0" layoutX="424.0" layoutY="111.0" startX="-100.0" />
-                     </children></Pane>
+                  <Pane prefHeight="340.0" prefWidth="255.0" BorderPane.alignment="CENTER" />
                </center>
                <top>
                   <HBox prefHeight="29.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -49,6 +38,9 @@
                      </children>
                   </HBox>
                </top>
+               <bottom>
+                  <Console prefHeight="150.0" prefWidth="615.0" BorderPane.alignment="CENTER" />
+               </bottom>
             </BorderPane>
          </left>
          <right>
