@@ -16,9 +16,9 @@ public class Console extends BorderPane{
     private ArrayList<String> displayHistory;
     private ArrayList<String> commands;
     private int index = 0;
-    private String[] commandWords;
     private Scan scanner;
     private Help helper;
+    private Report report;
 
     //TODO: How do I want the output of these commands to be shown....
     //TODO: I guess in the console output window...
@@ -28,6 +28,7 @@ public class Console extends BorderPane{
     public Console() {
         scanner = new Scan();
         helper = new Help();
+        report = new Report();
         getCommands();
         consoleInput = new TextField();
         consoleOutput = new TextArea();
@@ -67,7 +68,7 @@ public class Console extends BorderPane{
     private void consoleInputHandler(String command) {
         //TODO: pretty sure I can shorten the code as I have duplicate code.
         command = command.toLowerCase();
-        commandWords = command.split("\\s+");
+        String[] commandWords = command.split("\\s+");
         displayHistory.add(command);
         if (isCommand(commandWords[0])) {
             consoleHistory.add(0,command);
@@ -210,12 +211,6 @@ public class Console extends BorderPane{
 
     private void ping(String ip) {
         System.out.println("Ping");
-    }
-
-    private void produceReport() {
-        //TODO: Work out a way of asking the user if they are sure they want to produce a report
-        //TODO: and then if "Yes", produce the report..
-        //TODO: I could have a boolean and then if input is yes or no while boolean true, then export report....
     }
 
 }
