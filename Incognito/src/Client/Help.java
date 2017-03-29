@@ -29,8 +29,29 @@ public class Help {
         System.out.println("help");
         String specificHelp = "";
         switch (filter) {
+            case "map":
+                specificHelp = "\nmap - discovers all live hosts on a network \n" +
+                        "\nUsage: \n" +
+                        "map target_network from_IP to_IP [-t timeout] \n" +
+                        "map target_network from_IP to_IP \n" +
+                        "map target_network \n" +
+                        "\nOptions: \n" +
+                        "-t       timeout in milliseconds to receive reply \n" +
+                        "-a       advanced scan using TCP connections";
+                break;
+            case "scanner":
+                specificHelp = "\nscanner - scans for open ports on a target host\n" +
+                        "\nUsage: \n" +
+                        "scanner target_IP from_port to_port [-a] \n" +
+                        "\nOptions: \n" +
+                        "-a       advanced port scan (additional UDP scans)";
+                break;
             case "scan":
-                specificHelp = "scan - ";
+                specificHelp = "\nscan - scans for open ports on a target host\n" +
+                        "\nUsage: \n" +
+                        " \n" +
+                        "\nOptions: \n" +
+                        "";
                 break;
             case "clear":
                 specificHelp = "clear - clears console of past commands";

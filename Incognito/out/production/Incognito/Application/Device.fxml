@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" GridPane.columnIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.DeviceController">
+   <bottom>
+      <HBox prefHeight="60.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#ok" prefWidth="70.0" text="OK" translateX="90.0" translateY="20.0" />
+            <Button maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" onAction="#cancelSelection" prefWidth="70.0" text="Cancel" translateX="160.0" translateY="20.0" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox fx:id="listOfDevices" maxHeight="200.0" maxWidth="400.0" minHeight="200.0" minWidth="400.0" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="30.0" top="30.0" />
+         </padding></VBox>
+   </center>
+   <top>
+      <Label maxWidth="400.0" minWidth="400.0" prefWidth="400.0" text="Please choose from the list of devices below..." BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="75.0" top="20.0" />
+         </padding>
+      </Label>
+   </top>
+</BorderPane>

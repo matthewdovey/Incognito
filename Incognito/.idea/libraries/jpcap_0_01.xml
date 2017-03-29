@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jpcap-0.01">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/jpcap-0.01.16-win32" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

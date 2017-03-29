@@ -107,7 +107,8 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-               </children></HBox>
+               </children>
+            </HBox>
          </top>
       </BorderPane>
    </children>

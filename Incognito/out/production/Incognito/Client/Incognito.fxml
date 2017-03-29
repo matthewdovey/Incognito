@@ -59,7 +59,7 @@
                         <Label fx:id="ipAddress" text="IP Address:" />
                         <Label fx:id="operatingSystem" text="Operating System:" />
                         <Label fx:id="upTime" text="Up Time:" />
-                        <Label fx:id="macAddress" text="Mac Address" />
+                        <Label fx:id="macAddress" text="Mac Address:" />
                         <Label fx:id="fireWall" text="Firewall Enabled:" />
                         <Label fx:id="antiVirus" text="Anti Virus:" />
                         <Label text="Filters" />

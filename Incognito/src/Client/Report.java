@@ -6,7 +6,20 @@ package Client;
 public class Report {
 
     public Report() {
-
+//        try {
+//            // create a JAXBContext capable of handling classes generated into package
+//            javax.xml.bind.JAXBContext jaxbContext = javax.xml.bind.JAXBContext.newInstance("../lib/jaxb-ri");
+//            // create an object to marshal
+//            TypeToMarshal objectToMarshal = new TypeToMarshal();
+//            // create a Marshaller and do marshal
+//            javax.xml.bind.Marshaller marshaller = jaxbContext.createMarshaller();
+//            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+//            marshaller.marshal(objectToMarshal, new java.io.FileOutputStream("filename.xml"));
+//        } catch (javax.xml.bind.JAXBException je) {
+//            je.printStackTrace();
+//        } catch (java.io.FileNotFoundException io) {
+//            io.printStackTrace();
+//        }
     }
 
     private void createReport() {

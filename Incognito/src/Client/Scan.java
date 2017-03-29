@@ -3,9 +3,6 @@ package Client;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by mdovey on 10/12/2016.
- */
 public class Scan {
 
     private ArrayList<String> scans;
@@ -30,7 +27,7 @@ public class Scan {
         return true;
     }
 
-    private boolean isScan(String command) {
+    public boolean isScan(String command) {
         System.out.println("checking if valid..");
         return scans.contains(command); }
 

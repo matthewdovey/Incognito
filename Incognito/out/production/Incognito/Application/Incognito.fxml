@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import Client.Console?>
+
+<GridPane alignment="center" hgap="10" minHeight="425.0" prefHeight="500.0" prefWidth="1000.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="1000.0">
+         <left>
+            <BorderPane maxHeight="445.0" maxWidth="615.0" minHeight="445.0" minWidth="615.0" prefHeight="445.0" prefWidth="615.0" styleClass="topology" stylesheets="@IncognitoStyle.css" BorderPane.alignment="CENTER">
+               <top>
+                  <HBox prefHeight="29.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox minWidth="300.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="26.0" prefWidth="197.0" text="Target Network: " textAlignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="target" maxHeight="20.0" minWidth="150.0" translateY="1.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="15.0" top="20.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </top>
+               <bottom>
+                  <Console prefHeight="150.0" prefWidth="615.0" styleClass="console" stylesheets="@IncognitoStyle.css" BorderPane.alignment="CENTER" />
+               </bottom>
+               <center>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <HBox maxHeight="30.0" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Live Hosts:" translateY="6.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="refreshHosts" mnemonicParsing="false" onAction="#populateHostsTable" text="Refresh" translateX="428.0" translateY="12.0" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets left="28.0" top="15.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </top>
+                     <center>
+                        <TableView fx:id="displayLiveHosts" maxHeight="175.0" maxWidth="560.0" prefHeight="200.0" prefWidth="200.0" translateY="-10.0" BorderPane.alignment="CENTER">
+                          <columns>
+                             <TableColumn fx:id="ipColumn" prefWidth="140.0" text="Ip Address">
+                                <cellValueFactory>
+                                   <PropertyValueFactory property="ip" />
+                                </cellValueFactory>
+                             </TableColumn>
+                             <TableColumn fx:id="nameColumn" prefWidth="140.0" text="Name">
+                                <cellValueFactory>
+                                   <PropertyValueFactory property="name" />
+                                </cellValueFactory>
+                             </TableColumn>
+                             <TableColumn fx:id="osColumn" prefWidth="140.0" text="OS">
+                                <cellValueFactory>
+                                   <PropertyValueFactory property="os" />
+                                </cellValueFactory>
+                             </TableColumn>
+                             <TableColumn fx:id="timeColumn" prefWidth="140.0" text="Timestamp">
+                                <cellValueFactory>
+                                   <PropertyValueFactory property="timestamp" />
+                                </cellValueFactory>
+                             </TableColumn>
+                          </columns>
+                        </TableView>
+                     </center>
+                  </BorderPane>
+               </center>
+            </BorderPane>
+         </left>
+         <right>
+            <BorderPane maxHeight="445.0" maxWidth="385.0" minHeight="445.0" minWidth="385.0" prefHeight="445.0" prefWidth="385.0" styleClass="target" stylesheets="@IncognitoStyle.css" BorderPane.alignment="CENTER">
+               <top>
+                  <Label fx:id="targetHost" maxWidth="350.0" minHeight="40.0" minWidth="350.0" prefWidth="350.0" styleClass="target" text="Target Host:" BorderPane.alignment="CENTER_LEFT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets left="15.0" top="25.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </Label>
+               </top>
+               <center>
+                  <VBox maxHeight="175.0" maxWidth="350.0" minHeight="175.0" minWidth="350.0" prefHeight="175.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="hostName" text="Host Name:" />
+                        <Label fx:id="operatingSystem" text="Operating System:" />
+                        <Label fx:id="upTime" text="Up Time:" />
+                        <Label fx:id="macAddress" text="Mac Address:" />
+                        <Label fx:id="fireWall" text="Firewall Enabled:" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets top="20.0" />
+                     </BorderPane.margin>
+                  </VBox>
+               </center>
+               <bottom>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <TableView fx:id="displayOpenPorts" maxHeight="140.0" maxWidth="350.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0" translateY="-10.0" BorderPane.alignment="CENTER">
+                          <columns>
+                              <TableColumn prefWidth="100.0" text="Port" >
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="port" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="125.0" text="Status" >
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="status" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="125.0" text="TimeStamp" >
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="timestamp" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                          </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <HBox maxHeight="25.0" maxWidth="350.0" minHeight="25.0" minWidth="350.0" prefHeight="25.0" prefWidth="350.0" translateY="9.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Open Ports:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="refreshPorts" mnemonicParsing="false" onAction="#populatePortsTable" text="Refresh" translateX="190.0">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Button>
+                              <Button fx:id="scan" mnemonicParsing="false" onAction="#scan" text="Scan" translateX="190.0">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font></Button>
+                           </children>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </bottom></BorderPane>
+         </right>
+         <top>
+            <BorderPane maxHeight="55.0" maxWidth="1000.0" minHeight="55.0" minWidth="1000.0" prefHeight="55.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <top>
+                  <HBox maxHeight="25.0" maxWidth="1000.0" minHeight="25.0" minWidth="1000.0" prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuBar maxHeight="25.0" maxWidth="1000.0" minHeight="25.0" minWidth="1000.0" prefHeight="25.0" prefWidth="1000.0">
+                           <menus>
+                              <Menu mnemonicParsing="false" text="File">
+                                 <items>
+                                    <MenuItem fx:id="newSession" mnemonicParsing="false" text="New" />
+                                    <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exitSession" text="Exit" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Edit">
+                                 <items>
+                                    <MenuItem fx:id="clear" mnemonicParsing="false" onAction="#clear" text="Clear" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Help">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="User Guide" />
+                                    <MenuItem mnemonicParsing="false" text="About" />
+                                 </items>
+                              </Menu>
+                           </menus>
+                        </MenuBar>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox maxHeight="30.0" maxWidth="1000.0" minHeight="30.0" minWidth="1000.0" prefHeight="30.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ToolBar maxHeight="30.0" maxWidth="1000.0" minHeight="30.0" minWidth="1000.0" prefHeight="30.0" prefWidth="1000.0" translateY="-2.0" BorderPane.alignment="CENTER">
+                           <items>
+                              <Button mnemonicParsing="false" onAction="#clear" text="New">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" text="Save">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Button>
+                              <Button fx:id="displayTopology" mnemonicParsing="false" onAction="#displayTopology" text="Topology">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#displaySniffer" text="Sniffer" />
+                              <Button mnemonicParsing="false" text="Report">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Button>
+                           </items></ToolBar>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </children>
+</GridPane>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jpcap-0.01.16-win32">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jpcap-0.01.16-win32.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

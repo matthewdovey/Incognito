@@ -1,0 +1,13 @@
+.console {
+    -fx-border-color: #000000;
+}
+
+.topology {
+    -fx-background-color : #A9A9A9;
+    -fx-border-color: #000000;
+}
+
+.target {
+    -fx-background-color : #D3D3D3;
+    -fx-border-color: #000000;
+}
