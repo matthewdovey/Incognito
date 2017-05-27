@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 public class PortScanThread implements Runnable {
 
-    private Thread t;
     private InetAddress ip;
     private int start, finish, port;
     private HashMap<Integer, String> openPorts;
@@ -84,13 +83,6 @@ public class PortScanThread implements Runnable {
                         }
                 }
                 break;
-        }
-    }
-
-    public void start(){
-        if (t == null){
-            t = new Thread(this, "PortScanThread");
-            t.start();
         }
     }
 }

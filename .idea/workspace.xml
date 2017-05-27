@@ -28,22 +28,33 @@
       <file leaf-file-name="NetworkMapper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42307693" vertical-offset="510" max-vertical-offset="3060">
-              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state vertical-scroll-proportion="-0.2341629" vertical-offset="666" max-vertical-offset="2108">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5484#5485#0" expanded="true" />
-                <element signature="e#5536#5537#0" expanded="true" />
+                <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
+                <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
+                <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PingThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PingThread.java">
+      <file leaf-file-name="TCPThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/TCPThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortScanThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PortScanThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -52,8 +63,8 @@
       <file leaf-file-name="ICMPThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/ICMPThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="731">
-              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,7 +97,7 @@
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="493">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
@@ -132,24 +143,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UDPThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1190">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#890#891#0" expanded="false" />
-                <element signature="e#922#923#0" expanded="false" />
-                <element signature="e#952#953#0" expanded="false" />
-                <element signature="e#991#992#0" expanded="false" />
-                <element signature="e#1018#1019#0" expanded="false" />
-                <element signature="e#1047#1048#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="IdeDocumentHistory">
@@ -167,15 +160,15 @@
         <option value="$PROJECT_DIR$/Incognito/src/Application/PacketAnalyserController.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Threads/HeartBeatThread.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Threads/PingThread.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Threads/PortScanThread.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Threads/TCPThread.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/Comand.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/MapCommand.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Commands/Protocol.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Commands/MapCommand.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Threads/ICMPThread.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/Console.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Threads/TCPThread.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Threads/ICMPThread.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Threads/PortScanThread.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java" />
       </list>
     </option>
@@ -222,7 +215,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -364,6 +356,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -713,15 +706,16 @@
       <workItem from="1495832764662" duration="2192000" />
       <workItem from="1495835628522" duration="769000" />
       <workItem from="1495836437772" duration="8475000" />
+      <workItem from="1495910234668" duration="3110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20819000" />
+    <option name="totallyTimeSpent" value="23929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="2572" height="1047" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -803,7 +797,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -932,8 +926,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5484#5485#0" expanded="true" />
-            <element signature="e#5536#5537#0" expanded="true" />
+            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -999,14 +994,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.java">
@@ -1066,8 +1061,9 @@
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5484#5485#0" expanded="true" />
-            <element signature="e#5536#5537#0" expanded="true" />
+            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1133,14 +1129,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.java">
@@ -1181,14 +1177,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java">
@@ -1304,41 +1300,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PortScanThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1137#1138#0" expanded="false" />
-            <element signature="e#1169#1170#0" expanded="false" />
-            <element signature="e#1199#1200#0" expanded="false" />
-            <element signature="e#1238#1239#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/TCPThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#890#891#0" expanded="false" />
-            <element signature="e#922#923#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#991#992#0" expanded="false" />
-            <element signature="e#1018#1019#0" expanded="false" />
-            <element signature="e#1047#1048#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1391,24 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PingThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/ICMPThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="731">
-          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Console.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5127" max-vertical-offset="7854">
@@ -1419,14 +1367,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PingThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42307693" vertical-offset="510" max-vertical-offset="3060">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/PortScanThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/ICMPThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5484#5485#0" expanded="true" />
-            <element signature="e#5536#5537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/TCPThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.2341629" vertical-offset="666" max-vertical-offset="2108">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
           </folding>
         </state>
       </provider>

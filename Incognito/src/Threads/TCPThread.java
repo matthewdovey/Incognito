@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 
 public class TCPThread implements Runnable {
 
-    private Thread t;
     private String ip;
     private HashMap<String, String> liveHosts;
     private ArrayList<Integer> ports;
@@ -66,13 +65,6 @@ public class TCPThread implements Runnable {
                 System.out.println(e);
             }
 
-        }
-    }
-
-    public void start(){
-        if (t == null){
-            t = new Thread(this, "TCPThread");
-            t.start();
         }
     }
 }

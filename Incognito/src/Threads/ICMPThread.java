@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.HashMap;
 
-/**
- * Created by Matthew on 27/05/2017.
- */
 public class ICMPThread implements Runnable {
 
     private InetAddress ip;
@@ -28,10 +25,8 @@ public class ICMPThread implements Runnable {
     }
 
     public void run() {
-        System.out.println(this.ip + ": Thread running...");
         try {
             if (ip.isReachable(timeout)) {
-                System.out.println(this.ip + ": online");
                 liveHosts.put(ip.getHostAddress(), ip.getHostName());
             }
         } catch (IOException e) {
