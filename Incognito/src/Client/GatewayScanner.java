@@ -8,10 +8,6 @@ public class GatewayScanner {
 
     private ArrayList<String> gateways;
 
-    public GatewayScanner() {
-        System.out.println("Using gateway class...");
-    }
-
     public ArrayList<String> getGateways() {
         gateways = findGateway();
         return gateways;
@@ -37,7 +33,6 @@ public class GatewayScanner {
             while (true) {
                 line = r.readLine();
                 if (line == null) { break; }
-                System.out.println(line);
                 if (line.contains("IPv4")) {
                     ip = line.substring(line.length() - 15);
                     ip = ip.replaceAll("[^\\d.]", "");
@@ -48,7 +43,6 @@ public class GatewayScanner {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
         }
         return ips;
     }

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.HashMap;
 
-public class PingThread extends Thread {
+public class PingThread implements Runnable {
 
     private Thread t;
     private String ip;

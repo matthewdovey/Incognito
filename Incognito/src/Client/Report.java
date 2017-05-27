@@ -1,30 +1,64 @@
 package Client;
 
-/**
- * Created by Matthew on 11/12/2016.
- */
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class Report {
 
     public Report() {
+//        String sourceFileName = "C:\\Users\\mdovey\\Documents\\Incognito\\src\\Client\\report.xml";
 //        try {
-//            // create a JAXBContext capable of handling classes generated into package
-//            javax.xml.bind.JAXBContext jaxbContext = javax.xml.bind.JAXBContext.newInstance("../lib/jaxb-ri");
-//            // create an object to marshal
-//            TypeToMarshal objectToMarshal = new TypeToMarshal();
-//            // create a Marshaller and do marshal
-//            javax.xml.bind.Marshaller marshaller = jaxbContext.createMarshaller();
-//            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-//            marshaller.marshal(objectToMarshal, new java.io.FileOutputStream("filename.xml"));
-//        } catch (javax.xml.bind.JAXBException je) {
-//            je.printStackTrace();
-//        } catch (java.io.FileNotFoundException io) {
-//            io.printStackTrace();
+//
+//            JasperDesignViewer.viewReportDesign(JasperCompileManager.compileReportToFile(sourceFileName));
+//            JasperDesign jasperDesign = JasperCompileManager.
+//            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//            // Second, create a map of parameters to pass to the report.
+//            Map parameters = new HashMap();
+//            parameters.put("ReportTitle", "Basic JasperReport");
+//            parameters.put("MaxSalary", new Double(25000.00));
+//            // Third, get a database connection
+//            //Connection conn = Database.getConnection();
+//            // Fourth, create JasperPrint using fillReport() method
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters/*, conn*/);
+//            // You can use JasperPrint to create PDF
+//            JasperExportManager.exportReportToPdf(jasperPrint);
+//            // Or to view report in the JasperViewer
+//            JasperViewer.viewReport(jasperPrint);
+//        } catch (Exception e) {
+//
 //        }
     }
 
-    private void createReport() {
-        //TODO: Work out a way of asking the user if they are sure they want to produce a report
-        //TODO: and then if "Yes", produce the report..
-        //TODO: I could have a boolean and then if input is yes or no while boolean true, then export report....
-    }
+//    public void test() {
+//
+//        Map parameters = new HashMap();
+//        parameters.put("ReportTitle", "Basic JasperReport");
+//        parameters.put("MaxSalary", new Double(25000.00));
+//
+//        try {
+//            InputStream input = new FileInputStream(new File("C:\\Users\\mdovey\\Documents\\Incognito\\src\\Client\\template.xml"));
+//            JasperDesign design = JRXmlLoader.load(input);
+//
+//            Connection connection = DriverManager.getConnection("jdbc:sqlite:results.db");
+//
+//            JasperReport report = JasperCompileManager.compileReport(design);
+//            JasperPrint print = JasperFillManager.fillReport(report, parameters, connection);
+//
+//            OutputStream output = new FileOutputStream(new File("C:\\Users\\mdovey\\Documents\\Incognito\\src\\Client\\reportTest.pdf"));
+//            JasperExportManager.exportReportToPdfStream(print, output);
+//
+//            JasperViewer.viewReport(print);
+//        } catch (Exception e) {
+//
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        Report report = new Report();
+//        report.test();
+//    }
 }

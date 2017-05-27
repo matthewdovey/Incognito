@@ -34,8 +34,6 @@ public class PortScanner {
             int beginning = (fromPort + (i * 5));
             //Adds 10 to the ending value of a thread giving it 10 IPs to ping
             int end = (((i + 1) * 5) + fromPort);
-            //Increments the name of the thread
-            String name = "PortScanThread" + (i + 1);
             //Checks if last thread is being created, if so change end for the finishing IP address
             if (end >= toPort) {
                 portThreads[i] = new PortScanThread(ip, beginning, toPort);
@@ -45,7 +43,6 @@ public class PortScanner {
                 //System.out.println(name + " " + beginning + " " + end);
             }
         }
-        System.out.println(portThreads.length + " PortScanThreads were created...");
         return portThreads;
     }
 
@@ -56,8 +53,6 @@ public class PortScanner {
         for (int i = 0; i < toScan.size(); i++) {
             portThreads[i] = new PortScanThread(ip, toScan.get(i));
         }
-
-        System.out.println(portThreads.length + " PortScanThreads were created...");
 
         return portThreads;
     }
@@ -80,7 +75,6 @@ public class PortScanner {
                 udpThreads[i] = new UDPThread(name, ip, beginning, end);
             }
         }
-        System.out.println(udpThreads.length + " PortScanThreads were created...");
         return udpThreads;
     }
 
@@ -96,16 +90,12 @@ public class PortScanner {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-
             if (thread.portCount() > 0) {
                 openPorts.putAll(thread.getPorts());
-            } else {
-                System.out.println("port " + port + " is closed...");
             }
+
         } catch (Exception e) {
-            System.out.println(e);
         }
-        openPorts();
     }
 
     public void udpScan(InetAddress ip, int fromPort, int toPort) {
@@ -126,7 +116,6 @@ public class PortScanner {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("All threads finished...");
 
             for (UDPThread thread : udpThreads) {
                 if (thread.portCount() > 0) {
@@ -134,13 +123,46 @@ public class PortScanner {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
         }
-        openPorts();
     }
 
     public void udpScan(InetAddress ip, int... ports) {
 
+    }
+
+    public void tcpScan(InetAddress ip) {
+        PortScanThread[] portThreads = createPortScanThreads(ip, 1000, 1, 5000);
+
+        ExecutorService threads = Executors.newFixedThreadPool(1000);
+
+        for (PortScanThread thread : portThreads) {
+            threads.submit(thread);
+        }
+
+        threads.shutdown();
+
+        try {
+            //Forces application to wait for all threads to finish before proceeding
+            threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+
+            for (PortScanThread thread : portThreads) {
+                if (thread.portCount() > 0) {
+                    openPorts.putAll(thread.getPorts());
+                }
+            }
+        } catch (Exception e) {
+        }
+
+        int index = 0;
+        Port[] ports = new Port[openPorts.size()];
+        Iterator it = openPorts.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry device = (Map.Entry)it.next();
+            ports[index] = new Port(ip.getHostAddress(),(int) device.getKey(), (String) device.getValue());
+            index ++;
+        }
+        saveResults(ports);
+        console.displayPortResults(ports);
     }
 
     public void tcpScan(InetAddress ip, int port){
@@ -155,25 +177,18 @@ public class PortScanner {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("PortScanThread1 finished...");
 
             if (thread.portCount() > 0) {
                 openPorts.putAll(thread.getPorts());
-            } else {
-                System.out.println("port " + port + " is closed...");
             }
         } catch (Exception e) {
-            System.out.println(e);
         }
-        openPorts();
     }
 
     public void tcpScan(InetAddress ip, int fromPort, int toPort){
-        System.out.println("Scanning...");
         PortScanThread[] portThreads;
 
         double quantity = (double) (toPort - fromPort) / 5.0;
-        System.out.println("Quantity: " + quantity);
 
         portThreads = createPortScanThreads(ip, (int) Math.ceil(quantity), fromPort, toPort);
 
@@ -188,38 +203,25 @@ public class PortScanner {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("All threads finished...");
 
             for (PortScanThread thread : portThreads) {
                 if (thread.portCount() > 0) {
                     openPorts.putAll(thread.getPorts());
-                    System.out.println("has ports...");
                 }
-                System.out.println("for");
             }
-            System.out.println("for loop finished...");
         } catch (Exception e) {
-            System.out.println(e);
         }
-        openPorts();
 
         int index = 0;
         Port[] ports = new Port[openPorts.size()];
         Iterator it = openPorts.entrySet().iterator();
-        System.out.println("while");
         while (it.hasNext()) {
             Map.Entry device = (Map.Entry)it.next();
-            System.out.println("in while..");
-            System.out.println(device.getValue());
-            //System.out.println();
             ports[index] = new Port(ip.getHostAddress(),(int) device.getKey(), (String) device.getValue());
             index ++;
         }
         saveResults(ports);
-        System.out.println("about to display ports..");
-        console.displayPingResult("hay");
         console.displayPortResults(ports);
-        System.out.println("Results displayed...");
     }
 
     public void tcpScan(InetAddress ip, int... ports) throws ArgumentOverloadException {
@@ -254,7 +256,6 @@ public class PortScanner {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("All threads finished...");
 
             for (PortScanThread thread : portThreads) {
                 if (thread.portCount() > 0) {
@@ -264,15 +265,10 @@ public class PortScanner {
         } catch (Exception e) {
             System.out.println(e);
         }
-        openPorts();
     }
 
     private void saveResults(Port[] ports) {
         results.savePortScanResults(ports);
-    }
-
-    private void openPorts() {
-        openPorts.forEach((k,v) -> System.out.println("Lambda Port: "+k+" Status: "+v));
     }
 
 }

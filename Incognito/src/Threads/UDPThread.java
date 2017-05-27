@@ -7,10 +7,7 @@ import java.net.InetAddress;
 import java.net.SocketTimeoutException;
 import java.util.HashMap;
 
-/**
- * Created by Matthew on 07/02/2017.
- */
-public class UDPThread extends Thread {
+public class UDPThread implements Runnable {
 
     private Thread t;
     private int fromPort, toPort, port;

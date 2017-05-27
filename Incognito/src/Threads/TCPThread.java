@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TCPThread extends Thread {
+public class TCPThread implements Runnable {
 
     private Thread t;
     private String ip;

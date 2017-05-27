@@ -6,7 +6,7 @@ import Client.Ping;
 import java.io.IOException;
 import java.net.InetAddress;
 
-public class HeartBeatThread extends Thread {
+public class HeartBeatThread implements Runnable {
 
     private Thread t;
     private InetAddress ip;
@@ -26,6 +26,7 @@ public class HeartBeatThread extends Thread {
     }
 
     public void run() {
+        System.out.println("Running");
         try {
             final long startTime = System.currentTimeMillis();
             if (running) {
@@ -44,6 +45,7 @@ public class HeartBeatThread extends Thread {
     }
 
     public void start() {
+        System.out.println("Started");
         if (t == null){
             t = new Thread(this, "PingThread");
             t.start();

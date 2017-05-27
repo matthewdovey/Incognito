@@ -1,7 +1,9 @@
 package Client;
 import Application.Config;
+import Commands.MapCommand;
 import Database.Port;
 import javafx.application.Platform;
+import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -27,7 +29,7 @@ public class Console extends BorderPane{
     private Report report;
     private Command command;
     private Ping ping;
-    private NetworkMapper map;
+    private NetworkMapper mapper;
 
     //TODO: How do I want the output of these commands to be shown....
     //TODO: I guess in the console output window...
@@ -39,7 +41,7 @@ public class Console extends BorderPane{
         helper = new Help();
         report = new Report();
         command = new Command();
-        map = new NetworkMapper(this);
+        mapper = new NetworkMapper(this);
 
         Config.setConsole(this);
 
@@ -52,6 +54,8 @@ public class Console extends BorderPane{
         consoleOutput.setEditable(false);
         setCenter(consoleOutput);
         setBottom(consoleInput);
+
+        displayPingResult("Incognito [version 1.0]");
 
         consoleInput.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
@@ -79,7 +83,6 @@ public class Console extends BorderPane{
                     if (event.isControlDown()) {
                         System.out.println("Ctrl-C");
                         ping.stop();
-                        //add each thread into a list, if ctrl-c is clicked iterate through list and shutdown threads...
                     }
             }
         });
@@ -94,30 +97,148 @@ public class Console extends BorderPane{
             updateOutput();
             switch (commandWords[0]) {
                 case "help":
-                    help(commandWords);
+                    if (commandCheck(commandWords)) {
+                        help(commandWords);
+                    } else {
+
+                    }
                     break;
                 case "scan":
-                    scan(commandWords);
+                    if (commandCheck(commandWords)) {
+                        scan(commandWords);
+                    } else {
+
+                    }
                     break;
                 case "clear":
-                    clear();
+                    if (commandCheck((commandWords))) {
+                        clear();
+                    } else {
+
+                    }
                     break;
                 case "ping":
-                    ping(commandWords);
+                    if (commandCheck(commandWords)) {
+                        ping(commandWords);
+                    } else {
+
+                    }
                     break;
                 case "report":
-                    report(commandWords);
+                    if (commandCheck(commandWords)) {
+
+                    } else {
+                        report(commandWords);
+                    }
                     break;
                 case "map":
-                    mapper(commandWords);
+                    if (commandCheck(commandWords)) {
+                        mapper(commandWords);
+                    } else {
+                        helper.help(displayHistory, "map");
+                    }
                     break;
                 case "exit":
-                    exit(commandWords);
+                    if (commandCheck(commandWords)) {
+                        exit(commandWords);
+                    } else {
+
+                    }
                     break;
             }
         } else {
             displayErrorMessage();
         }
+    }
+
+    public boolean commandCheck(String[] commandWords) {
+        switch (commandWords[0]) {
+            case "help":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+            case "scan":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+            case "clear":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+            case "ping":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+            case "report":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+            case "map":
+                if (!isIP(commandWords[1])) {
+                    displayPingResult("Invalid IP address...");
+                    return false;
+                }
+                if (!lengthCheck(commandWords)) {
+                    displayPingResult("Invalid number of arguments...");
+                    return false;
+                }
+                break;
+            case "exit":
+                if (!lengthCheck(commandWords)) {
+                    return false;
+                }
+                break;
+        }
+        return true;
+    }
+
+    private boolean lengthCheck(String[] commandWords) {
+        switch (commandWords[0]) {
+            case "help":
+                if (commandWords.length > 2) {
+                    return false;
+                }
+                break;
+            case "scan":
+
+                break;
+            case "clear":
+                if (commandWords.length > 1) {
+                    return false;
+                }
+                break;
+            case "ping":
+                if (commandWords.length > 2) {
+                    return false;
+                }
+                break;
+            case "report":
+                if (commandWords.length > 2) {
+                    return false;
+                }
+                break;
+            case "map":
+                if (commandWords.length < 2 || commandWords.length > 5) {
+                    return false;
+                }
+                break;
+            case "exit":
+                exit(commandWords);
+                break;
+        }
+        return true;
+    }
+
+    private boolean rangeCheck(String number) {
+        if (Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 255) {
+            return true;
+        }
+        return false;
     }
 
     private void help(String[] commandWords) {
@@ -147,87 +268,39 @@ public class Console extends BorderPane{
         }
     }
 
+    private InetAddress stringToIP(String ip){
+        try {
+            return InetAddress.getByName(ip);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private void mapper(String[] commandWords) {
         ExecutorService service = Executors.newFixedThreadPool(1);
 
-        if (commandWords.length < 2 || commandWords.length > 6) {
-            helper.help(displayHistory, "map");
-        } else if (!isIP(commandWords[1])) {
-            displayPingResult("Invalid IP address...");
-        } else if (commandWords.length == 2) {
-                if (isIP(commandWords[1])) {
+        MapCommand command;
 
-                    Future future = service.submit(new Callable(){
-                        public Object call() throws Exception {
-                            try {
-                                map.pingCheck(commandWords[1], 1, 255);
-                            } catch (IOException e) {
+        if (commandWords.length == 2) {
+            command = new MapCommand(stringToIP(commandWords[1]));
 
-                            }
-                            return "Ping check Failed";
-                        }
-                    });
+            mapper.map(command);
 
-                    try {
-                        System.out.println("future.get() = " + future.get());
-                    } catch (Exception e) {
+        } else if (commandWords.length == 3) {
+            command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
 
-                    }
-
-                    service.shutdown();
-                }
-
+            mapper.map(command);
         } else if (commandWords.length == 4) {
-            if (isIP(commandWords[1])) {
-                if (rangeCheck(commandWords[2]) && rangeCheck(commandWords[3])) {
+            command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
 
-                    Future future = service.submit(new Callable(){
-                        public Object call() throws Exception {
-                            try {
-                                return map.pingCheck(commandWords[1], Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-                            } catch (IOException e) {
-
-                            }
-                            return "Ping check failed";
-                        }
-                    });
-
-                    try {
-                        System.out.println("future.get() = " + future.get());
-                    } catch (Exception e) {
-
-                    }
-
-                    Thread tcpThread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                map.tcpCheck(commandWords[1], Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-                            } catch (IOException e) {
-
-                            }
-                        }
-                    });
-
-                    service.submit(tcpThread);
-
-                    service.shutdown();
-
-                    try {
-                        service.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-                        System.out.println("all finished...");
-                    } catch (InterruptedException e) {
-
-                    }
-                } else {
-                    //Output error message about range...
-                }
-            }
-        } else if (commandWords.length <= 6) {
+            mapper.map(command);
 
 
-        } else {
-            helper.help(displayHistory, "mapper");
+        } else if (commandWords.length == 5) {
+            command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]), true);
+
+            mapper.map(command);
         }
     }
 
@@ -243,15 +316,21 @@ public class Console extends BorderPane{
                 if (rangeCheck(commandWords[2]) && rangeCheck(commandWords[3])) {
                     if (commandWords[4].equals("-a")) {
                         NetworkMapper map = new NetworkMapper(this, Integer.parseInt(commandWords[5]));
-                        try {
-                            map.pingCheck(commandWords[1], Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-                        } catch (IOException e) {
-                            System.out.println(e);
-                        }
+//                        try {
+//                            map.pingCheck(commandWords[1], Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
+//                        } catch (IOException e) {
+//                            System.out.println(e);
+//                        }
                     } else {
                         //Output invalid command issued...
                     }
                 }
+            }
+        } else if (commandWords.length == 2) {
+            try {
+                scan.tcpScan(InetAddress.getByName(commandWords[1]));
+            } catch (Exception e) {
+
             }
         } else {
             helper.help(displayHistory, "scanner");
@@ -373,12 +452,5 @@ public class Console extends BorderPane{
             }
         }
         return true;
-    }
-
-    private boolean rangeCheck(String number) {
-        if (Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 255) {
-            return true;
-        }
-        return false;
     }
 }

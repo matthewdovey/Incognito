@@ -51,7 +51,7 @@ public class ResultsDatabase {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to save hosts to database...");
+            e.printStackTrace();
         }
     }
 
@@ -72,7 +72,7 @@ public class ResultsDatabase {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to save ports to database...");
+            e.printStackTrace();
         }
     }
 
@@ -92,7 +92,7 @@ public class ResultsDatabase {
             prep.close();
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to save packet to database...");
+            e.printStackTrace();
         }
     }
 
@@ -102,7 +102,6 @@ public class ResultsDatabase {
             String sql = "INSERT INTO devices VALUES (?, ?, ?)";
             int id = 0;
             for (Device device : devices) {
-                System.out.println("for");
                 PreparedStatement prep = connection.prepareStatement(sql);
                 prep.setInt(1, id++);
                 prep.setString(2, device.getName());
@@ -112,26 +111,9 @@ public class ResultsDatabase {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to save devices to database...");
+            e.printStackTrace();
         }
     }
-
-//    public void saveDevices(int id, Device device) {
-//        System.out.println("ID: " + id + " Device: " + device.getName() + " Description: " + device.getDescription());
-//        try {
-//            connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-//            String sql = "INSERT INTO devices VALUES (?, ?, ?)";
-//            PreparedStatement prep = connection.prepareStatement(sql);
-//            prep.setInt(1, 1);
-//            prep.setString(2, device.getName());
-//            prep.setString(3, device.getDescription());
-//            prep.executeUpdate();
-//            prep.close();
-//            connection.close();
-//        } catch (Exception e) {
-//            System.out.println("Failed to save device to database...");
-//        }
-//    }
 
     public Host[] returnHostObjects() {
         int index = 0;
@@ -156,19 +138,16 @@ public class ResultsDatabase {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to return hosts from database...");
+            e.printStackTrace();
         }
         return hosts;
     }
 
     public Port[] returnPortObjects(String ip) {
-        System.out.println("Attempting to return port objects...");
-        System.out.println(ip);
         int index = 0;
         Port[] ports = {};
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-            System.out.println("Connection established...");
 
             String sql = "SELECT * FROM ports WHERE ip = ?";
             PreparedStatement prep = connection.prepareStatement(sql);
@@ -176,11 +155,9 @@ public class ResultsDatabase {
 
             ResultSet rs = prep.executeQuery();
 
-            System.out.println("statement created...");
             while(rs.next()) {
                 index++;
             }
-            System.out.println("while complete, index :" + index);
             ports = new Port[index];
 
             rs = prep.executeQuery();
@@ -194,27 +171,23 @@ public class ResultsDatabase {
                 ports[index] = port;
                 index++;
             }
-            System.out.println("closing connection");
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to return ports from database...");
+            e.printStackTrace();
         }
         return ports;
     }
 
     public Packet[] returnPacketObjects() {
-        System.out.println("Attempting to return packet objects...");
         int index = 0;
         Packet[] packets = {};
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:results.db");
             Statement statement = connection.createStatement();
-            System.out.println("Connection established...");
             ResultSet rs = statement.executeQuery("SELECT * FROM packets");
             while(rs.next()) {
                 index++;
             }
-            System.out.println("while complete, index :" + index);
             packets = new Packet[index];
             rs = statement.executeQuery("SELECT * FROM packets");
             index = 0;
@@ -228,26 +201,21 @@ public class ResultsDatabase {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to return packets from database...");
+            e.printStackTrace();
         }
         return packets;
     }
 
     public Device[] returnDeviceObjects() {
-        displayTable("hosts");
-        displayTable("ports");
-        displayTable("devices");
         int index = 0;
         Device[] devices = {};
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:results.db");
             Statement statement = connection.createStatement();
-            System.out.println("Connection established...");
             ResultSet rs = statement.executeQuery("SELECT * FROM devices");
             while(rs.next()) {
                 index++;
             }
-            System.out.println("Finished first while");
             devices = new Device[index];
             rs = statement.executeQuery("SELECT * FROM devices");
             index = 0;
@@ -256,99 +224,30 @@ public class ResultsDatabase {
                 devices[index] = new Device(rs.getString("device"), rs.getString("description"));
                 index++;
             }
-            System.out.println("finished second while");
             connection.close();
         } catch (Exception e) {
-            System.out.println("Failed to return devices from database...");
+            e.printStackTrace();
         }
         return devices;
-    }
-
-    public HashMap<String, String> getValueFromTable(String table, String value) {
-        HashMap<String, String> values = new HashMap<>();
-        try {
-            connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from " + table);
-            while (rs.next()) {
-                //values.put(rs.getString(value))
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-
-    public void displayTable(String table) {
-        System.out.println("");
-        System.out.println("Display Table : " + table);
-        if (table.equals("hosts")) {
-            try {
-                connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-                Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from " + table);
-                while(rs.next())
-                {
-                    System.out.print(rs.getInt("id") + " | ");
-                    System.out.print(rs.getString("ip"));
-                    System.out.print(" | host: " + rs.getString("host"));
-                    System.out.print(" | os: " + rs.getString("os") + " | ");
-                    System.out.println(" timestamp: " + rs.getString("stamp"));
-                }
-                connection.close();
-            } catch (Exception e) {
-                System.out.println("Failed to display hosts table...");
-            }
-        } else if (table.equals("devices")) {
-            try {
-                connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-                Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from " + table);
-                while(rs.next())
-                {
-                    System.out.print(rs.getInt("id") + " | ");
-                    System.out.print(rs.getString("device"));
-                    System.out.println(" | Desc: " + rs.getString("description"));
-                }
-                connection.close();
-            } catch (Exception e) {
-
-            }
-        } else {
-            try {
-                connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-                Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery("select * from " + table);
-                while(rs.next())
-                {
-                    System.out.print(rs.getInt("id") + " | ");
-                    System.out.print(rs.getString("ip"));
-                    System.out.print(" | port: " + rs.getInt("port"));
-                    System.out.println(" | (" + rs.getString("status") + ") |");
-                }
-                connection.close();
-            } catch (Exception e) {
-                System.out.println("Failed to open database...");
-            }
-        }
     }
 
     public void clear() {
         createDatabase();
     }
 
-    public static void main(String[] args) {
-        ResultsDatabase results = new ResultsDatabase();
 
-        Device[] devices = new Device[4];
-        devices[0] = new Device("gay", "gayworked1");
-        devices[1] = new Device("lol", "gayworked2");
-        devices[2] = new Device("hey", "gayworked3");
-        devices[3] = new Device("not", "gayworked4");
-
-        results.saveDevices(devices);
-
-        results.displayTable("devices");
-
-    }
+    //    public HashMap<String, String> getValueFromTable(String table, String value) {
+//        HashMap<String, String> values = new HashMap<>();
+//        try {
+//            connection = DriverManager.getConnection("jdbc:sqlite:results.db");
+//            Statement statement = connection.createStatement();
+//            ResultSet rs = statement.executeQuery("select * from " + table);
+//            while (rs.next()) {
+//                //values.put(rs.getString(rs.ge))
+//            }
+//        } catch (Exception e) {
+//
+//        }
+//        return null;
+//    }
 }

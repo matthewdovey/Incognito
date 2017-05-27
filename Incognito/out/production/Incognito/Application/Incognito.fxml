@@ -65,6 +65,7 @@
                                  </font>
                               </Label>
                               <Button fx:id="refreshHosts" mnemonicParsing="false" onAction="#populateHostsTable" text="Refresh" translateX="428.0" translateY="12.0" />
+                              <Button mnemonicParsing="false" text="Scan" translateX="330.0" translateY="12.0" />
                            </children>
                            <BorderPane.margin>
                               <Insets left="28.0" top="15.0" />
@@ -73,28 +74,28 @@
                      </top>
                      <center>
                         <TableView fx:id="displayLiveHosts" maxHeight="175.0" maxWidth="560.0" prefHeight="200.0" prefWidth="200.0" translateY="-10.0" BorderPane.alignment="CENTER">
-                          <columns>
-                             <TableColumn fx:id="ipColumn" prefWidth="140.0" text="Ip Address">
-                                <cellValueFactory>
-                                   <PropertyValueFactory property="ip" />
-                                </cellValueFactory>
-                             </TableColumn>
-                             <TableColumn fx:id="nameColumn" prefWidth="140.0" text="Name">
-                                <cellValueFactory>
-                                   <PropertyValueFactory property="name" />
-                                </cellValueFactory>
-                             </TableColumn>
-                             <TableColumn fx:id="osColumn" prefWidth="140.0" text="OS">
-                                <cellValueFactory>
-                                   <PropertyValueFactory property="os" />
-                                </cellValueFactory>
-                             </TableColumn>
-                             <TableColumn fx:id="timeColumn" prefWidth="140.0" text="Timestamp">
-                                <cellValueFactory>
-                                   <PropertyValueFactory property="timestamp" />
-                                </cellValueFactory>
-                             </TableColumn>
-                          </columns>
+                           <columns>
+                              <TableColumn fx:id="ipColumn" prefWidth="140.0" text="Ip Address">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="ip" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn fx:id="nameColumn" prefWidth="140.0" text="Name">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="name" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn fx:id="osColumn" prefWidth="140.0" text="OS">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="os" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn fx:id="timeColumn" prefWidth="140.0" text="Timestamp">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="timestamp" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                           </columns>
                         </TableView>
                      </center>
                   </BorderPane>
@@ -134,23 +135,23 @@
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <center>
                         <TableView fx:id="displayOpenPorts" maxHeight="140.0" maxWidth="350.0" minWidth="350.0" prefHeight="200.0" prefWidth="350.0" translateY="-10.0" BorderPane.alignment="CENTER">
-                          <columns>
-                              <TableColumn prefWidth="100.0" text="Port" >
+                           <columns>
+                              <TableColumn prefWidth="100.0" text="Port">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="port" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="125.0" text="Status" >
+                              <TableColumn prefWidth="125.0" text="Status">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="status" />
                                  </cellValueFactory>
                               </TableColumn>
-                              <TableColumn prefWidth="125.0" text="TimeStamp" >
+                              <TableColumn prefWidth="125.0" text="TimeStamp">
                                  <cellValueFactory>
                                     <PropertyValueFactory property="timestamp" />
                                  </cellValueFactory>
                               </TableColumn>
-                          </columns>
+                           </columns>
                         </TableView>
                      </center>
                      <top>

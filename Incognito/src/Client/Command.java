@@ -11,7 +11,6 @@ public class Command {
     }
 
     private void getCommands() {
-        //TODO: Work out all of the commands that will be available
         commands = new ArrayList<>();
         commands.add("help");
         commands.add("scan");

@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 //TODO: Maybe scan each port three times before making a decision on whether or not it is filtered, if open then break loop early, if closed break loop early, if filtered try 3 times in total.
 
-public class PortScanThread extends Thread {
+public class PortScanThread implements Runnable {
 
     private Thread t;
     private InetAddress ip;
@@ -19,7 +19,7 @@ public class PortScanThread extends Thread {
         openPorts = new HashMap<>();
         this.ip = ip;
         start = 1;
-        finish = 1000;
+        finish = 5000;
         version = 1;
     }
 
@@ -52,18 +52,13 @@ public class PortScanThread extends Thread {
         switch (version) {
             case 1:
                 for (int i = start; i < finish; i++) {
-                    try
-                    {
+                    try {
                         s = new Socket();
-                        s.connect(new InetSocketAddress(ip, i), 1000);
-                        //System.out.println(ip + " - port " + i + ": open");
+                        s.connect(new InetSocketAddress(ip, i), 2000);
                         openPorts.put(i, "Open");
-                    }
-                    catch (Exception e)
-                    {
-                    }
-                    finally
-                    {
+                    } catch (Exception e) {
+
+                    } finally {
                         if(s != null) {
                             try {
                                 s.close();
@@ -75,17 +70,11 @@ public class PortScanThread extends Thread {
                 }
                 break;
             case 2:
-                try
-                {
+                try {
                     s = new Socket(ip, port);
-                    //System.out.println(ip + " " + port + ": open");
                     openPorts.put(port, "Open");
-                }
-                catch (Exception e) {
-                    System.out.println("closed");
-                }
-                finally
-                {
+                } catch (Exception e) {
+                } finally {
                     if(s != null)
                         try {
                             s.close();

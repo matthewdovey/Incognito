@@ -23,33 +23,26 @@ public class TopologyController {
 
     @FXML
     public void initialize() {
-        //test();
         generateTopology(result.returnHostObjects());
     }
 
     private void generateTopology(Host[] hosts) {
         Image image;
-        ImageView icon;
 
         if (hosts.length == 0) {
             gateway.getChildren().add(new Label("No live hosts have been found..."));
         } else {
             int half = (hosts.length / 2);
-            System.out.println(half);
             int spacing = 150 / half;
 
             topRow.setSpacing(spacing);
             bottomRow.setSpacing(spacing);
 
-            System.out.println("Half: " + half);
             int index = 0;
             for (Host host : hosts) {
-                System.out.println("IP: " + host.getIP());
                 if (host.getIP().equals("192.168.0.1")) {
-                    System.out.println("should have a gateway");
                     image = new Image("/Graphics/gateway.png");
                     gateway.getChildren().add(generatePane(image, host.getIP(), host.getOS(),0));
-                    //re-write to check for a 1 as the last segment of the ip address
                 } else {
                     index++;
                     image = new Image("/Graphics/computer.png");
@@ -93,15 +86,5 @@ public class TopologyController {
         pane.getChildren().add(ipLabel);
         pane.getChildren().add(osLabel);
         return pane;
-    }
-
-    public void test() {
-        Host[] hosts = new Host[5];
-        hosts[0] = new Host("192.168.0.1","gateway");
-        hosts[1] = new Host("192.168.0.2","matthew");
-        hosts[2] = new Host("192.168.0.3","ayuub");
-        hosts[3] = new Host("192.168.0.4","masud");
-        hosts[4] = new Host("192.168.0.5","chip");
-        generateTopology(hosts);
     }
 }

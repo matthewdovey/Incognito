@@ -49,30 +49,24 @@ public class PacketAnalyserController {
 
             //Getting a list of devices
             int r = Pcap.findAllDevs(alldevs, errbuf);
-            System.out.println("R: " + r);
 
             if (r != Pcap.OK) {
-                System.err.printf("Can't read list of devices, error is %s", errbuf.toString());
                 return;
             }
 
-            System.out.println("Network devices found:");
             int i = 0;
 
-            System.out.println(alldevs.size());
 
             if (Config.getDevice() == 0) {
                 Device[] deviceObjects = new Device[alldevs.size()];
 
                 for (PcapIf device : alldevs) {
                     String description = (device.getDescription() != null) ? device.getDescription() : "No description available";
-                    System.out.printf("#%d: %s [%s]\n", i++, device.getName(), description);
                     deviceObjects[i-1] = new Device(device.getName(), device.getDescription());
                 }
 
                 results.saveDevices(deviceObjects);
 
-                System.out.println("Zero!");
                 Parent root;
                 root = FXMLLoader.load(getClass().getResource("Device.fxml"));
                 Stage stage = new Stage();
@@ -80,9 +74,7 @@ public class PacketAnalyserController {
                 stage.setScene(new Scene(root, 400, 300));
                 stage.show();
             } else {
-                System.out.println("setting device...");
                 PcapIf device = alldevs.get(Config.getDevice()-1);
-                System.out.println("Device set...");
 
                 int snaplen = 64 * 1024;           // Capture all packets, no trucation
                 int flags = Pcap.MODE_PROMISCUOUS; // capture all packets
@@ -92,14 +84,8 @@ public class PacketAnalyserController {
                 Pcap pcap = Pcap.openLive(device.getName(), snaplen, flags, timeout, errbuf);
 
                 if (pcap == null) {
-                    System.err.printf("Error while opening device for capture: "
-                            + Config.getErrbuf().toString());
                     return;
                 }
-                System.out.println("device opened");
-
-                Packet[] packets = new Packet[100];
-                Packet packet;
 
                 //Create packet handler which will receive packets
                 PcapPacketHandler jpacketHandler = new PcapPacketHandler() {
@@ -110,10 +96,6 @@ public class PacketAnalyserController {
                         //Here i am capturing the ARP packets only,you can capture any packet that you want by just changing the below if condition
                         if (pcapPacket.hasHeader(arp)) {
                             recordPacket(new Packet(arp.getName(), Integer.toString(arp.protocolType()), arp.protocolTypeDescription(), "192.168.100.144", "192.168.100.1"));
-                            System.out.println("Hardware type" + arp.hardwareType());
-                            System.out.println("Protocol type" + arp.protocolType());
-                            System.out.println("Packet:" + arp.getPacket());
-                            System.out.println();
                         }
                     }
                 };
@@ -121,31 +103,17 @@ public class PacketAnalyserController {
                 pcap.loop(10, jpacketHandler, "jnetpcap rocks!");
                 //Close the pcap
                 pcap.close();
-                System.out.println("done...");
             }
 
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
     public void recordPacket(Packet packet) {
         results.savePacketResults(packet);
-        //packets[packets.length] = packet;
     }
 
-//    public void showDeviceOptions() {
-//        try {
-//            Parent root;
-//            root = FXMLLoader.load(getClass().getResource("Device.fxml"));
-//            Stage stage = new Stage();
-//            stage.setTitle("Devices");
-//            stage.setScene(new Scene(root, 400, 300));
-//            stage.show();
-//        } catch (Exception e) {
-//
-//        }
-//    }
 
     public void stop() {
 
@@ -161,7 +129,6 @@ public class PacketAnalyserController {
 
     public void populatePacketTable() {
         Packet[] packets = results.returnPacketObjects();
-        System.out.println("how many? " + packets.length);
 
         if (packets.length < 1) {
             displayCapturedPackets.setPlaceholder(new Label("No packets have been captured"));

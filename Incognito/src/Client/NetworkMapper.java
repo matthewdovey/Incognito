@@ -1,16 +1,15 @@
 package Client;
 
-import Application.Controller;
+import Commands.MapCommand;
 import Database.Host;
 import Database.ResultsDatabase;
+import Threads.ICMPThread;
 import Threads.PingThread;
 import Threads.TCPThread;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -38,67 +37,25 @@ public class NetworkMapper {
         results = new ResultsDatabase();
     }
 
-    //Creates ping threads to break down the list of IPs into subsets of 10
-    private PingThread[] createPingThreads(InetAddress ip, double quantity, int start) {
-        //Creates an array the size of the number of threads needed to hold the threads
-        PingThread[] pingThreads = new PingThread[(int) quantity];
-        String address = ip.toString().substring(1, ip.toString().length()-1);
-        for (int i = 0; i < (int) quantity; i++) {
-            int num = start + i;
-            String ia = address + num;
-            pingThreads[i] = new PingThread(ia, timeout);
-        }
-        System.out.println(pingThreads.length + " PingThreads were created...");
-        return pingThreads;
-    }
+    public void map(MapCommand command) {
+        ArrayList<ICMPThread> threads = createICMPThreads(command);
 
-    //Creates tcp threads to break down the list of IPs into subsets of 10
-    private TCPThread[] createTCPThreads(String ip, int quantity, int start, int finish) {
-        //Creates an array the size of the number of threads needed to hold the threads
-        TCPThread[] tcpThreads = new TCPThread[quantity];
+        final ExecutorService executor = Executors.newFixedThreadPool(threads.size());
 
-        ip = ip.substring(1);
-        System.out.println(ip + "-------------------------------------------------------------------------");
+        threads.forEach(x -> executor.submit(x));
 
-        for (int i = 0; i < quantity; i++) {
-            String address = ip + i;
-            tcpThreads[i] = new TCPThread(address);
-        }
-        System.out.println(tcpThreads.length + " TCPThreads were created...");
-        return tcpThreads;
-    }
-
-    //Starts and collects all data from ping threads, returns boolean based on if any live hosts found
-    public String pingCheck(String networkAddress, int start, int finish) throws IOException {
-
-        console.displayPingResult("Pinging addresses...");
-        PingThread[] pingThreads;
-
-        //divides the total amount of IPs by 10
-        double quantity = (double) (finish - start);
-        //rounds up no matter tha value if it is not a whole number
-        pingThreads = createPingThreads(InetAddress.getByName(networkAddress),(int) Math.ceil(quantity), start);
-
-        final ExecutorService threads = Executors.newFixedThreadPool((int) Math.ceil(quantity));
-
-        for (PingThread thread : pingThreads) {
-            threads.execute(thread);
-        }
-
-        threads.shutdown();
+        executor.shutdown();
 
         try {
-            //Forces application to wait for all threads to finish before proceeding
-            threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("All pingThreads finished...");
-
-            for (PingThread thread : pingThreads) {
-                if (thread.liveHosts() > 0) {
-                    liveHosts.putAll(thread.getHosts());
-                }
-            }
+            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
+        }
+
+        for (ICMPThread thread : threads) {
+            if (thread.liveHosts() > 0) {
+                liveHosts.putAll(thread.getHosts());
+            }
         }
 
         console.displayPingResults(liveHosts);
@@ -113,7 +70,48 @@ public class NetworkMapper {
             index ++;
         }
         updateDatabase(hosts);
-        return "Ping check finished...";
+    }
+
+    private String blockRemover(String ip) {
+        for (int i = ip.length()-1; i > 0; i--) {
+            if (ip.charAt(i) == '.') {
+                System.out.println(ip.substring(0, i+1));
+                return ip.substring(0, i+1);
+            }
+        }
+        return null;
+    }
+
+    private ArrayList<ICMPThread> createICMPThreads(MapCommand command) {
+        ArrayList<ICMPThread> threads = new ArrayList<>(command.getEnd() - command.getStart());
+
+        String address = blockRemover(command.getAddress().getHostAddress());
+
+        try {
+            for (int i = 0; i != command.getEnd() - command.getStart(); i++) {
+                threads.add(new ICMPThread(InetAddress.getByName(address + (command.getStart() + i)), 5000));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return threads;
+    }
+
+    //Creates tcp threads to break down the list of IPs into subsets of 10
+    private TCPThread[] createTCPThreads(String ip, int quantity) {
+        //Creates an array the size of the number of threads needed to hold the threads
+        TCPThread[] tcpThreads = new TCPThread[quantity];
+        ip = ip.substring(1);
+        for (int i = 0; i < quantity; i++) {
+            String address = ip + i;
+            tcpThreads[i] = new TCPThread(address);
+        }
+        return tcpThreads;
+    }
+
+    public void pingCheck(MapCommand command) {
+
     }
 
     public void tcpCheck(String networkAddress, int start, int finish) throws IOException{
@@ -122,7 +120,7 @@ public class NetworkMapper {
         //divides the total amount of IPs by 10
         double quantity = (double) (finish - start);
         //rounds up no matter tha value if it is not a whole number
-        tcpThreads = createTCPThreads(networkAddress, (int) Math.ceil(quantity), start, finish);
+        tcpThreads = createTCPThreads(networkAddress, (int) Math.ceil(quantity));
 
         ExecutorService threads = Executors.newFixedThreadPool((int) Math.ceil(quantity));
 
@@ -135,7 +133,6 @@ public class NetworkMapper {
         try {
             //Forces application to wait for all threads to finish before proceeding
             threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("All tcpThreads finished...");
 
             for (TCPThread thread : tcpThreads) {
                 if (thread.liveHosts() > 0) {
@@ -168,16 +165,10 @@ public class NetworkMapper {
             index ++;
         }
         updateDatabase(hosts);
-        System.out.println("Tcp check finished...");
     }
 
     public void updateDatabase(Host[] devices) {
         results.saveLiveHostResults(devices);
-        results.displayTable("hosts");
-    }
-
-    public HashMap<String, String> liveHosts() {
-        return liveHosts;
     }
 
 }

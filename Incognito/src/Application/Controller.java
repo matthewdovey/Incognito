@@ -80,6 +80,7 @@ public class Controller {
                     targetHost.setText("Target host: " + rowData.getIP());
                     hostName.setText("Host name: " + rowData.getName());
                     operatingSystem.setText("OS: " + rowData.getOS());
+                    fireWall.setText("Firewall enabled: True");
                     populatePortsTable(rowData.getIP());
                 }
             });
@@ -104,10 +105,7 @@ public class Controller {
     }
 
     public void populatePortsTable() {
-        System.out.println("|" + targetHost.getText().substring(13) + "|");
-
         Port[] openPorts = results.returnPortObjects(targetHost.getText().substring(13));
-        System.out.println("how many? " + openPorts.length);
 
         if (openPorts.length < 1) {
             displayOpenPorts.setPlaceholder(new Label("No ports have been found for " + targetHost.getText()));
@@ -127,14 +125,12 @@ public class Controller {
             return;
         }
         String target = targetHost.getText().substring(13);
-        System.out.println("Scanning " + targetHost.getText().substring(13));
         try {
             InetAddress ip = InetAddress.getByName(target);
-            System.out.println(ip.getHostAddress());
             scanner.tcpScan(ip, 1, 5000);
 
         } catch (Exception e) {
-            System.out.println("Failed to scan " + target + ": " + e);
+            e.printStackTrace();
         }
     }
 
@@ -170,13 +166,11 @@ public class Controller {
     }
 
     private void findGateway() {
-        System.out.println("The size: " + gatewayScanner.getGateways().size());
         ArrayList<String> gatewayAddress = gatewayScanner.getGateways();
         if (gatewayAddress.size() > 1) {
-            System.out.println("\nWhich gatewayScanner address is correct?");
-            for (String address: gatewayAddress) {
-                System.out.println(address);
-            }
+//            for (String address: gatewayAddress) {
+//                System.out.println(address);
+//            }
             target.setText(gatewayAddress.get(1));
         } else if (!gatewayAddress.isEmpty()){
             target.setText(gatewayAddress.get(0));
