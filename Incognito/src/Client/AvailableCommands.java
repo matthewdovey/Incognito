@@ -2,11 +2,11 @@ package Client;
 
 import java.util.ArrayList;
 
-public class Command {
+public class AvailableCommands {
 
     private ArrayList<String> commands;
 
-    public Command() {
+    public AvailableCommands() {
         getCommands();
     }
 

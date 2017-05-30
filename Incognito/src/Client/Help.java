@@ -2,9 +2,6 @@ package Client;
 
 import java.util.ArrayList;
 
-/**
- * Created by Matthew on 11/12/2016.
- */
 public class Help {
 
     public Help() {
@@ -12,7 +9,6 @@ public class Help {
     }
 
     public void helpMenu(ArrayList<String> displayHistory) {
-        System.out.println("help");
         String helpMenu = "help - display all valid commands\nscan - \nclear - clears console of past commands\n" +
                 "ping - \nreport - requests the creation of the exportable report\nexit - exits out of Incognito";
         String output = "";
@@ -26,7 +22,6 @@ public class Help {
     }
 
     public void help(ArrayList<String> displayHistory, String filter) {
-        System.out.println("help");
         String specificHelp = "";
         switch (filter) {
             case "map":

@@ -1,6 +1,6 @@
 package Tests;
 
-import Client.Command;
+import Client.AvailableCommands;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,15 +8,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandTest extends TestCase {
+public class AvailableCommandsTest extends TestCase {
 
-    private Command testCommand;
+    private AvailableCommands testAvailableCommands;
     private List<String> realMainCommands;
     private List<String> fakeMainCommands;
 
     protected void setUp() {
         System.out.println("Setting up Command tests...");
-        testCommand = new Command();
+        testAvailableCommands = new AvailableCommands();
 
         realMainCommands = new ArrayList<>();
         realMainCommands.add("help");
@@ -38,14 +38,14 @@ public class CommandTest extends TestCase {
     @Test
     public void testRealMainCommands() {
         for (String command : realMainCommands) {
-            Assert.assertTrue(testCommand.isCommand(command));
+            Assert.assertTrue(testAvailableCommands.isCommand(command));
         }
     }
 
     @Test
     public void testFakeMainCommands() {
         for (String command : fakeMainCommands) {
-            Assert.assertFalse(testCommand.isCommand(command));
+            Assert.assertFalse(testAvailableCommands.isCommand(command));
         }
     }
 }

@@ -5,14 +5,15 @@ package Database;
  */
 public class Device {
 
-    private String name, description;
+    private final String name, description;
+    private final byte[] hardwareAddress;
 
-    public Device(String name, String description) {
+    public Device(String name, String description, byte[] hardwareAddress) {
         this.name = name;
         this.description = description;
+        this.hardwareAddress = hardwareAddress;
         System.out.println();
-        System.out.println(name);
-        System.out.println(description);
+        System.out.println("Name: " + name + "     Description: " + description + "       Hardware Address: " + hardwareAddress);
         System.out.println();
     }
 
@@ -23,4 +24,6 @@ public class Device {
     public String getDescription() {
         return this.description;
     }
+
+    public byte[] getHardwareAddress() { return this.hardwareAddress; }
 }

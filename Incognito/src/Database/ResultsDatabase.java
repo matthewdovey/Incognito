@@ -27,7 +27,7 @@ public class ResultsDatabase {
             statement.executeUpdate("CREATE TABLE packets (id INT NOT NULL, flag TEXT NOT NULL, protocol TEXT NOT NULL, protocolType TEXT NOT NULL, source TEXT NOT NULL, destination TEXT NOT NULL, stamp TEXT NOT NULL)");
 
             statement.executeUpdate("DROP TABLE if EXISTS devices");
-            statement.executeUpdate("CREATE TABLE devices (id INT NOT NULL, device TEXT NOT NULL, description TEXT NOT NULL, UNIQUE (device))");
+            statement.executeUpdate("CREATE TABLE devices (id INT NOT NULL, device TEXT NOT NULL, description TEXT NOT NULL, hardwareAddress TEXT NOT NULL, UNIQUE (device))");
 
             connection.close();
         } catch (Exception e) {
@@ -99,13 +99,14 @@ public class ResultsDatabase {
     public void saveDevices(Device[] devices) {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:results.db");
-            String sql = "INSERT INTO devices VALUES (?, ?, ?)";
+            String sql = "INSERT INTO devices VALUES (?, ?, ?, ?)";
             int id = 0;
             for (Device device : devices) {
                 PreparedStatement prep = connection.prepareStatement(sql);
                 prep.setInt(1, id++);
                 prep.setString(2, device.getName());
                 prep.setString(3, device.getDescription());
+                prep.setBytes(4, device.getHardwareAddress());
                 prep.executeUpdate();
                 prep.close();
             }
@@ -221,7 +222,7 @@ public class ResultsDatabase {
             index = 0;
             while(rs.next())
             {
-                devices[index] = new Device(rs.getString("device"), rs.getString("description"));
+                devices[index] = new Device(rs.getString("device"), rs.getString("description"), rs.getBytes("hardwareAddress"));
                 index++;
             }
             connection.close();

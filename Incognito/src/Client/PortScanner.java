@@ -1,5 +1,6 @@
 package Client;
 
+import Commands.ScanCommand;
 import Database.Port;
 import Database.ResultsDatabase;
 import Exceptions.ArgumentOverloadException;
@@ -130,8 +131,8 @@ public class PortScanner {
 
     }
 
-    public void tcpScan(InetAddress ip) {
-        PortScanThread[] portThreads = createPortScanThreads(ip, 1000, 1, 5000);
+    public void tcpScan(ScanCommand command) {
+        PortScanThread[] portThreads = createPortScanThreads(command.getAddress(), 1000, 1, 5000);
 
         ExecutorService threads = Executors.newFixedThreadPool(1000);
 

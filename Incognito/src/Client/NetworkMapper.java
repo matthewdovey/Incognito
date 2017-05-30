@@ -1,5 +1,6 @@
 package Client;
 
+import Commands.Command;
 import Commands.MapCommand;
 import Database.Host;
 import Database.ResultsDatabase;
@@ -27,7 +28,7 @@ public class NetworkMapper {
         results = new ResultsDatabase();
     }
 
-    public void map(MapCommand command) {
+    public void map(Command command) {
         ArrayList<ICMPThread> threads = createICMPThreads(command);
 
         final ExecutorService executor = Executors.newFixedThreadPool(threads.size());
@@ -42,11 +43,7 @@ public class NetworkMapper {
             e.printStackTrace();
         }
 
-        for (ICMPThread thread : threads) {
-            if (thread.liveHosts() > 0) {
-                liveHosts.putAll(thread.getHosts());
-            }
-        }
+        threads.stream().filter(s -> s.liveHosts() > 0).forEach(s -> liveHosts.putAll(s.getHosts()));
 
         console.displayPingResults(liveHosts);
 
@@ -87,11 +84,7 @@ public class NetworkMapper {
             e.printStackTrace();
         }
 
-        for (TCPThread thread : threads) {
-            if (thread.liveHosts() > 0) {
-                liveHosts.putAll(thread.getHosts());
-            }
-        }
+        threads.stream().filter(s -> s.liveHosts() > 0).forEach(s -> liveHosts.putAll(s.getHosts()));
 
         console.displayPingResults(liveHosts);
 
@@ -117,7 +110,7 @@ public class NetworkMapper {
         updateDatabase(hosts);
     }
 
-    private ArrayList<ICMPThread> createICMPThreads(MapCommand command) {
+    private <T extends Command> ArrayList<ICMPThread> createICMPThreads(T command) {
         ArrayList<ICMPThread> threads = new ArrayList<>(command.getEnd() - command.getStart());
 
         String address = blockRemover(command.getAddress().getHostAddress());

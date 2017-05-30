@@ -49,23 +49,27 @@ public class PacketAnalyserController {
 
             //Getting a list of devices
             int r = Pcap.findAllDevs(alldevs, errbuf);
+            System.out.println("R: " + r);
 
             if (r != Pcap.OK) {
                 return;
             }
 
-            int i = 0;
-
+            Device[] devices = new Device[alldevs.size()];
 
             if (Config.getDevice() == 0) {
-                Device[] deviceObjects = new Device[alldevs.size()];
+
+                String description;
+                int count = 0;
 
                 for (PcapIf device : alldevs) {
-                    String description = (device.getDescription() != null) ? device.getDescription() : "No description available";
-                    deviceObjects[i-1] = new Device(device.getName(), device.getDescription());
+                    description = (device.getDescription() != null) ? device.getDescription() : "No description available";
+                    System.out.println(device.getAddresses());
+                    devices[count] = new Device(device.getName(), description, device.getHardwareAddress());
+                    count++;
                 }
 
-                results.saveDevices(deviceObjects);
+                results.saveDevices(devices);
 
                 Parent root;
                 root = FXMLLoader.load(getClass().getResource("Device.fxml"));

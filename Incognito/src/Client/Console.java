@@ -1,22 +1,21 @@
 package Client;
 import Application.Config;
+import Commands.Command;
 import Commands.MapCommand;
+import Commands.ScanCommand;
 import Database.Port;
 import javafx.application.Platform;
-import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.*;
 
 public class Console extends BorderPane{
     private TextField consoleInput;
@@ -24,23 +23,19 @@ public class Console extends BorderPane{
     private ArrayList<String> consoleHistory;
     private ArrayList<String> displayHistory;
     private int index = 0;
-    private PortScanner scan;
+    private PortScanner scanner;
     private Help helper;
     private Report report;
-    private Command command;
+    private AvailableCommands availableCommands;
     private Ping ping;
     private NetworkMapper mapper;
-
-    //TODO: How do I want the output of these commands to be shown....
-    //TODO: I guess in the console output window...
-    //TODO: How much do I want to allow the user to do?
-    //TODO: I think get the basics done, then if there is time make it more advanced...
+    private Command command;
 
     public Console() {
-        scan = new PortScanner(this);
+        scanner = new PortScanner(this);
         helper = new Help();
         report = new Report();
-        command = new Command();
+        availableCommands = new AvailableCommands();
         mapper = new NetworkMapper(this);
 
         Config.setConsole(this);
@@ -89,60 +84,59 @@ public class Console extends BorderPane{
     }
 
     private void consoleInputHandler(String input) {
-        input = input.toLowerCase();
-        String[] commandWords = input.split("\\s+");
+        String[] commandWords = input.toLowerCase().split("\\s+");
         displayHistory.add(input);
-        if (command.isCommand(commandWords[0])) {
-            consoleHistory.add(0,input);
-            updateOutput();
+        consoleHistory.add(0,input);
+        updateOutput();
+        if (availableCommands.isCommand(commandWords[0])) {
             switch (commandWords[0]) {
                 case "help":
-                    if (commandCheck(commandWords)) {
+                    if (lengthCheck(commandWords)) {
                         help(commandWords);
                     } else {
-
+                        helper.help(displayHistory, "help");
                     }
                     break;
                 case "scan":
-                    if (commandCheck(commandWords)) {
+                    if (lengthCheck(commandWords)) {
                         scan(commandWords);
                     } else {
-
+                        helper.help(displayHistory, "scan");
                     }
                     break;
                 case "clear":
-                    if (commandCheck((commandWords))) {
+                    if (lengthCheck((commandWords))) {
                         clear();
                     } else {
-
+                        helper.help(displayHistory, "clear");
                     }
                     break;
                 case "ping":
-                    if (commandCheck(commandWords)) {
+                    if (lengthCheck(commandWords)) {
                         ping(commandWords);
                     } else {
-
+                        helper.help(displayHistory, "ping");
                     }
                     break;
                 case "report":
-                    if (commandCheck(commandWords)) {
-
-                    } else {
+                    if (lengthCheck(commandWords)) {
                         report(commandWords);
+                    } else {
+                        helper.help(displayHistory, "report");
                     }
                     break;
                 case "map":
-                    if (commandCheck(commandWords)) {
+                    if (lengthCheck(commandWords)) {
                         mapper(commandWords);
                     } else {
                         helper.help(displayHistory, "map");
                     }
                     break;
                 case "exit":
-                    if (commandCheck(commandWords)) {
-                        exit(commandWords);
+                    if (lengthCheck(commandWords)) {
+                        exit();
                     } else {
-
+                        helper.help(displayHistory, "exit");
                     }
                     break;
             }
@@ -151,74 +145,30 @@ public class Console extends BorderPane{
         }
     }
 
-    public boolean commandCheck(String[] commandWords) {
-        switch (commandWords[0]) {
-            case "help":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-            case "scan":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-            case "clear":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-            case "ping":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-            case "report":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-            case "map":
-                if (!isIP(commandWords[1])) {
-                    displayPingResult("Invalid IP address...");
-                    return false;
-                }
-                if (!lengthCheck(commandWords)) {
-                    displayPingResult("Invalid number of arguments...");
-                    return false;
-                }
-                break;
-            case "exit":
-                if (!lengthCheck(commandWords)) {
-                    return false;
-                }
-                break;
-        }
-        return true;
-    }
-
     private boolean lengthCheck(String[] commandWords) {
         switch (commandWords[0]) {
             case "help":
-                if (commandWords.length > 2) {
+                if (commandWords.length != 2) {
                     return false;
                 }
                 break;
             case "scan":
-
+                if (commandWords.length < 2 || commandWords.length > 5) {
+                    return false;
+                }
                 break;
             case "clear":
-                if (commandWords.length > 1) {
+                if (commandWords.length != 1) {
                     return false;
                 }
                 break;
             case "ping":
-                if (commandWords.length > 2) {
+                if (commandWords.length != 2) {
                     return false;
                 }
                 break;
             case "report":
-                if (commandWords.length > 2) {
+                if (commandWords.length != 2) {
                     return false;
                 }
                 break;
@@ -228,7 +178,9 @@ public class Console extends BorderPane{
                 }
                 break;
             case "exit":
-                exit(commandWords);
+                if (commandWords.length != 1) {
+                    return false;
+                }
                 break;
         }
         return true;
@@ -242,14 +194,7 @@ public class Console extends BorderPane{
     }
 
     private void help(String[] commandWords) {
-        if (commandWords.length > 2) {
-            displayErrorMessage();
-        } else if (commandWords.length == 2){
-            helper.help(displayHistory, commandWords[1]);
-        } else {
-            helper.helpMenu(displayHistory);
-        }
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
+        helper.help(displayHistory, commandWords[1]);
     }
 
     private void clear() {
@@ -258,14 +203,8 @@ public class Console extends BorderPane{
     }
 
     private void ping(String[] commandWords) {
-        if (commandWords.length == 1 || commandWords.length > 2) {
-            helper.help(displayHistory, "ping");
-        } else if (!isIP(commandWords[1])){
-            displayIpErrorMessage();
-        } else {
-            ping = new Ping(this, commandWords[1]);
-            ping.start();
-        }
+        ping = new Ping(this, commandWords[1]);
+        ping.start();
     }
 
     private InetAddress stringToIP(String ip){
@@ -278,59 +217,39 @@ public class Console extends BorderPane{
     }
 
     private void mapper(String[] commandWords) {
-        ExecutorService service = Executors.newFixedThreadPool(1);
-
-        MapCommand command;
-
         if (commandWords.length == 2) {
             command = new MapCommand(stringToIP(commandWords[1]));
-
             mapper.map(command);
 
         } else if (commandWords.length == 3) {
             command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
-
             mapper.map(command);
         } else if (commandWords.length == 4) {
             command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-
             mapper.map(command);
-
 
         } else if (commandWords.length == 5) {
             command = new MapCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]), true);
-
             mapper.map(command);
         }
     }
 
     private void scan(String[] commandWords) {
-        if (commandWords.length == 4) {
-            try {
-                scan.tcpScan(InetAddress.getByName(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-            } catch (UnknownHostException e) {
-                System.out.println(e);
-            }
+        if (commandWords.length == 2) {
+            command = new ScanCommand(stringToIP(commandWords[1]));
+            scanner.tcpScan(command);
+        } else if (commandWords.length == 3) {
+            command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
+            scanner.tcpScan(command);
+        }else if (commandWords.length == 4) {
+            command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
+            scanner.tcpScan(command);
         } else if (commandWords.length == 5) {
-            if (isIP(commandWords[1])) {
-                if (rangeCheck(commandWords[2]) && rangeCheck(commandWords[3])) {
-                    if (commandWords[4].equals("-a")) {
-                        NetworkMapper map = new NetworkMapper(this, Integer.parseInt(commandWords[5]));
-//                        try {
-//                            map.pingCheck(commandWords[1], Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-//                        } catch (IOException e) {
-//                            System.out.println(e);
-//                        }
-                    } else {
-                        //Output invalid command issued...
-                    }
-                }
-            }
-        } else if (commandWords.length == 2) {
-            try {
-                scan.tcpScan(InetAddress.getByName(commandWords[1]));
-            } catch (Exception e) {
+            command = new ScanCommand()
+            if (rangeCheck(commandWords[2]) && rangeCheck(commandWords[3])) {
+                if (commandWords[4].equals("-a")) {
 
+                }
             }
         } else {
             helper.help(displayHistory, "scanner");
@@ -345,12 +264,8 @@ public class Console extends BorderPane{
         }
     }
 
-    private void exit(String[] commandWords) {
-        if (commandWords.length == 1) {
-            Platform.exit();
-        } else {
-            displayErrorMessage();
-        }
+    private void exit() {
+        Platform.exit();
     }
 
     public void displayPingResults(HashMap<String, String> results) {

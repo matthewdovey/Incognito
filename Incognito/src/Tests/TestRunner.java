@@ -12,7 +12,7 @@ import org.junit.runner.notification.RunNotifier;
  */
 public class TestRunner extends Runner{
     public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(CommandTest.class);
+        Result result = JUnitCore.runClasses(AvailableCommandsTest.class);
 
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());

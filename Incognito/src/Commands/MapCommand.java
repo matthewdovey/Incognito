@@ -2,7 +2,7 @@ package Commands;
 
 import java.net.InetAddress;
 
-public class MapCommand {
+public final class MapCommand extends Command{
 
     private final InetAddress address;
     private final int start, end;
@@ -36,19 +36,21 @@ public class MapCommand {
         this.advancedCheck = advancedCheck;
     }
 
-    public InetAddress getAddress() {
+    public final InetAddress getAddress() {
         return this.address;
     }
 
-    public int getStart() {
+    @Override
+    public final int getStart() {
         return this.start;
     }
 
-    public int getEnd() {
+    @Override
+    public final int getEnd() {
         return this.end;
     }
 
-    public boolean isAdvancedCheck() {
+    public final boolean isAdvancedCheck() {
         return this.advancedCheck;
     }
 }
