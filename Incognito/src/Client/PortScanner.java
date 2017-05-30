@@ -1,5 +1,6 @@
 package Client;
 
+import Commands.Command;
 import Commands.ScanCommand;
 import Database.Port;
 import Database.ResultsDatabase;
@@ -79,7 +80,7 @@ public class PortScanner {
         return udpThreads;
     }
 
-    public void udpScan(InetAddress ip, int port) {
+    public void udpScan(Command command) {
         UDPThread thread = new UDPThread("UDPThread1", ip, port);
 
         ExecutorService threads = Executors.newFixedThreadPool(1);
@@ -131,7 +132,7 @@ public class PortScanner {
 
     }
 
-    public void tcpScan(ScanCommand command) {
+    public void tcpScan(Command command) {
         PortScanThread[] portThreads = createPortScanThreads(command.getAddress(), 1000, 1, 5000);
 
         ExecutorService threads = Executors.newFixedThreadPool(1000);
@@ -159,7 +160,7 @@ public class PortScanner {
         Iterator it = openPorts.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry device = (Map.Entry)it.next();
-            ports[index] = new Port(ip.getHostAddress(),(int) device.getKey(), (String) device.getValue());
+            //ports[index] = new Port(command.getAddress(),(int) device.getKey(), (String) device.getValue());
             index ++;
         }
         saveResults(ports);

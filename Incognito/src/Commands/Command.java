@@ -14,6 +14,10 @@ public class Command {
         return address;
     }
 
+    public String getStringAddress() {
+        return address.getHostAddress();
+    }
+
     public int getStart() {
         return start;
     }

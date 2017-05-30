@@ -235,24 +235,37 @@ public class Console extends BorderPane{
     }
 
     private void scan(String[] commandWords) {
-        if (commandWords.length == 2) {
-            command = new ScanCommand(stringToIP(commandWords[1]));
-            scanner.tcpScan(command);
-        } else if (commandWords.length == 3) {
-            command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
-            scanner.tcpScan(command);
-        }else if (commandWords.length == 4) {
-            command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
-            scanner.tcpScan(command);
-        } else if (commandWords.length == 5) {
-            command = new ScanCommand()
-            if (rangeCheck(commandWords[2]) && rangeCheck(commandWords[3])) {
-                if (commandWords[4].equals("-a")) {
-
-                }
+        if (Arrays.asList(commandWords).contains("-udp")) {
+            if (commandWords.length == 3) {
+                command = new ScanCommand(stringToIP(commandWords[1]));
+                scanner.udpScan(command);
+            } else if (commandWords.length == 4) {
+                command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
+                scanner.udpScan(command);
+            } else if (commandWords.length == 5) {
+                command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[3]), Integer.parseInt(commandWords[3]));
+                scanner.udpScan(command);
+            } else if (commandWords.length == 6) {
+                //command = new ScanCommand()
+                //scanner.udpScan(command);
+            } else {
+                helper.help(displayHistory, "scanner");
             }
         } else {
-            helper.help(displayHistory, "scanner");
+            if (commandWords.length == 2) {
+                command = new ScanCommand(stringToIP(commandWords[1]));
+                scanner.tcpScan(command);
+            } else if (commandWords.length == 3) {
+                command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]));
+                scanner.tcpScan(command);
+            }else if (commandWords.length == 4) {
+                command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
+                scanner.tcpScan(command);
+            } else if (commandWords.length > 4) {
+                Arrays.asList(commandWords).forEach(x -> rangeCheck(x));
+            } else {
+                helper.help(displayHistory, "scanner");
+            }
         }
     }
 

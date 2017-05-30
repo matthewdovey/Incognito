@@ -25,21 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MACScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/MACScanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1292">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Console.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59615386" vertical-offset="3264" max-vertical-offset="6341">
-              <caret line="225" column="32" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.81858903" vertical-offset="3791" max-vertical-offset="6562">
+              <caret line="268" column="9" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,18 +37,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Help.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1377">
+              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding>
                 <element signature="e#214#215#0" expanded="true" />
                 <element signature="e#244#245#0" expanded="true" />
-                <element signature="e#273#274#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#331#332#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#415#416#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,7 +115,7 @@
       <file leaf-file-name="GatewayScanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="901">
+            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="901">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
@@ -123,8 +125,8 @@
       <file leaf-file-name="PortScanner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="3434">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1736" max-vertical-offset="3434">
+              <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
               <folding>
                 <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
                 <element signature="method#udpScan#0;class#PortScanner#0" expanded="false" />
@@ -137,8 +139,8 @@
       <file leaf-file-name="ScanCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1139">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1192#1193#0" expanded="true" />
@@ -153,7 +155,7 @@
       <file leaf-file-name="Port.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Port.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="952">
+            <state vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="952">
               <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
                 <element signature="e#1595#1596#0" expanded="true" />
@@ -188,13 +190,13 @@
         <option value="$PROJECT_DIR$/Incognito/src/Application/PacketAnalyserController.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Database/Device.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Client/Help.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Client/PortScanner.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/AvailableCommands.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Commands/MapCommand.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Commands/Command.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Client/Help.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Commands/Command.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Client/PortScanner.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/Console.java" />
       </list>
     </option>
@@ -212,9 +214,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1294" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -756,15 +759,15 @@
       <workItem from="1495836437772" duration="8475000" />
       <workItem from="1495910234668" duration="7657000" />
       <workItem from="1495986716147" duration="5386000" />
-      <workItem from="1496162805248" duration="4089000" />
+      <workItem from="1496162805248" duration="7945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37951000" />
+    <option name="totallyTimeSpent" value="41807000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1294" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -779,7 +782,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38732395" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19335938" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1230,30 +1233,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/MACScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Port.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="952">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding>
-            <element signature="e#1595#1596#0" expanded="true" />
-            <element signature="e#1634#1635#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1284,29 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="901">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1989">
@@ -1320,22 +1281,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="3434">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1377">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
-            <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
-            <element signature="method#udpScan#0;class#PortScanner#0" expanded="false" />
-            <element signature="method#udpScan#1;class#PortScanner#0" expanded="false" />
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Port.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="952">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="e#1595#1596#0" expanded="true" />
+            <element signature="e#1634#1635#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1139">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1192#1193#0" expanded="true" />
@@ -1346,10 +1331,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="3434">
+          <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+          <folding>
+            <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
+            <element signature="method#udpScan#0;class#PortScanner#0" expanded="false" />
+            <element signature="method#udpScan#1;class#PortScanner#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="901">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Console.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59615386" vertical-offset="3264" max-vertical-offset="6341">
-          <caret line="225" column="32" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.81858903" vertical-offset="3791" max-vertical-offset="6562">
+          <caret line="268" column="9" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
