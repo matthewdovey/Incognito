@@ -28,8 +28,8 @@
       <file leaf-file-name="Console.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Console.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81858903" vertical-offset="3791" max-vertical-offset="6562">
-              <caret line="268" column="9" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
+            <state vertical-scroll-proportion="-0.34266517" vertical-offset="2244" max-vertical-offset="6137">
+              <caret line="114" column="85" selection-start-line="114" selection-start-column="85" selection-end-line="114" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,100 +37,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Help.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
+      <file leaf-file-name="IpAddressValidator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/IpAddressValidator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1377">
-              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/Command.java">
+      <file leaf-file-name="UDPThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-              <folding>
-                <element signature="e#214#215#0" expanded="true" />
-                <element signature="e#244#245#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-                <element signature="e#331#332#0" expanded="true" />
-                <element signature="e#360#361#0" expanded="true" />
-                <element signature="e#388#389#0" expanded="true" />
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#441#442#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AvailableCommands.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/AvailableCommands.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="493">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="1190">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetworkMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
+      <file leaf-file-name="HeartBeatThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/HeartBeatThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1989">
-              <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
-                <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
-                <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/MapCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="method#MapCommand#0;class#MapCommand#0" expanded="false" />
-                <element signature="method#MapCommand#1;class#MapCommand#0" expanded="false" />
-                <element signature="method#MapCommand#2;class#MapCommand#0" expanded="false" />
-                <element signature="method#MapCommand#3;class#MapCommand#0" expanded="false" />
-                <element signature="e#1020#1021#0" expanded="true" />
-                <element signature="e#1055#1056#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1137#1138#0" expanded="true" />
-                <element signature="e#1184#1185#0" expanded="true" />
-                <element signature="e#1215#1216#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GatewayScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="901">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="935">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PortScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
+      <file leaf-file-name="ResultsDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1736" max-vertical-offset="3434">
-              <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+              <caret line="209" column="42" selection-start-line="209" selection-start-column="42" selection-end-line="209" selection-end-column="42" />
               <folding>
-                <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
-                <element signature="method#udpScan#0;class#PortScanner#0" expanded="false" />
-                <element signature="method#udpScan#1;class#PortScanner#0" expanded="false" />
+                <element signature="method#ResultsDatabase#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#createDatabase#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#saveLiveHostResults#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#savePortScanResults#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#savePacketResults#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#saveDevices#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#returnHostObjects#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#returnPortObjects#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#returnPacketObjects#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="method#returnDeviceObjects#0;class#ResultsDatabase#0" expanded="false" />
+                <element signature="e#8595#8679#0" expanded="false" />
+                <marker date="1495927266987" expanded="true" signature="446:472" placeholder="DROP TABLE i..." />
+                <marker date="1495927266987" expanded="true" signature="513:639" placeholder="CREATE TABLE..hosts..." />
+                <marker date="1495927266987" expanded="true" signature="681:707" placeholder="DROP TABLE i..." />
+                <marker date="1495927266987" expanded="true" signature="748:880" placeholder="CREATE TABLE..ports..." />
+                <marker date="1495927266987" expanded="true" signature="922:950" placeholder="DROP TABLE i..." />
+                <marker date="1495927266987" expanded="true" signature="991:1171" placeholder="CREATE TABLE..packets..." />
+                <marker date="1495927266987" expanded="true" signature="1213:1241" placeholder="DROP TABLE i..." />
+                <marker date="1495927266987" expanded="true" signature="1282:1417" placeholder="CREATE TABLE..devices..." />
+                <marker date="1495927266987" expanded="true" signature="1676:1716" placeholder="INSERT INTO ..." />
+                <marker date="1495927266987" expanded="true" signature="2440:2480" placeholder="INSERT INTO ..." />
+                <marker date="1495927266987" expanded="true" signature="3231:3279" placeholder="INSERT INTO ..." />
+                <marker date="1495927266987" expanded="true" signature="4046:4085" placeholder="INSERT INTO ..." />
+                <marker date="1495927266987" expanded="true" signature="4940:4959" placeholder="select * fro..hosts..." />
+                <marker date="1495927266987" expanded="true" signature="5111:5130" placeholder="select * fro..hosts..." />
+                <marker date="1495927266987" expanded="true" signature="5808:5840" placeholder="SELECT * FRO..ports..." />
+                <marker date="1495927266987" expanded="true" signature="6908:6929" placeholder="SELECT * FRO..packets..." />
+                <marker date="1495927266987" expanded="true" signature="7085:7106" placeholder="SELECT * FRO..packets..." />
+                <marker date="1495927266987" expanded="true" signature="7956:7977" placeholder="SELECT * FRO..devices..." />
+                <marker date="1495927266987" expanded="true" signature="8133:8154" placeholder="SELECT * FRO..devices..." />
               </folding>
             </state>
           </provider>
@@ -139,28 +111,52 @@
       <file leaf-file-name="ScanCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1071">
+              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1192#1193#0" expanded="true" />
-                <element signature="e#1223#1224#0" expanded="true" />
-                <element signature="e#1270#1271#0" expanded="true" />
-                <element signature="e#1299#1300#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Port.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Port.java">
+      <file leaf-file-name="Target.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Target.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="952">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="544">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
-                <element signature="e#1595#1596#0" expanded="true" />
-                <element signature="e#1634#1635#0" expanded="true" />
+                <element signature="e#243#244#0" expanded="false" />
+                <element signature="e#271#272#0" expanded="false" />
+                <element signature="e#300#301#0" expanded="false" />
+                <element signature="e#325#326#0" expanded="false" />
+                <element signature="e#356#357#0" expanded="false" />
+                <element signature="e#383#384#0" expanded="false" />
+                <element signature="e#412#413#0" expanded="false" />
+                <element signature="e#437#438#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortScanner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="4182">
+              <caret line="130" column="39" selection-start-line="130" selection-start-column="39" selection-end-line="130" selection-end-column="39" />
+              <folding>
+                <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scan.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Scan.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1173">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,7 +167,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Incognito/Incognito.iml" />
-        <option value="$PROJECT_DIR$/Incognito/src/Database/Host.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Application/Controller.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Database/DeleteMe.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Database/Port.java" />
@@ -195,8 +190,11 @@
         <option value="$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/Help.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Commands/Command.java" />
-        <option value="$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Database/Host.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/PortScanner.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Client/InetAddressValidator.java" />
+        <option value="$PROJECT_DIR$/Incognito/src/Client/IpAddressValidator.java" />
         <option value="$PROJECT_DIR$/Incognito/src/Client/Console.java" />
       </list>
     </option>
@@ -244,7 +242,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -405,9 +403,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Incognito" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Incognito" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Incognito" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -424,7 +440,15 @@
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Application.Incognito">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Matthew\OneDrive\Incognito\Incognito\src\Client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Matthew\OneDrive\Incognito\Incognito\lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.IpAddressValidator">
     <configuration default="false" name="Incognito" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -471,6 +495,28 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IpAddressValidator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Client.IpAddressValidator" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Incognito" />
+      <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -727,14 +773,16 @@
       <envs />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Incognito" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.AvailableCommandsTest" />
+      <item index="2" class="java.lang.String" itemvalue="Application.IpAddressValidator" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Incognito" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AvailableCommandsTest" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.IpAddressValidator" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Incognito" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AvailableCommandsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -759,20 +807,23 @@
       <workItem from="1495836437772" duration="8475000" />
       <workItem from="1495910234668" duration="7657000" />
       <workItem from="1495986716147" duration="5386000" />
-      <workItem from="1496162805248" duration="7945000" />
+      <workItem from="1496162805248" duration="11122000" />
+      <workItem from="1496226226697" duration="7280000" />
+      <workItem from="1496316981042" duration="10730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41807000" />
+    <option name="totallyTimeSpent" value="62994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -780,24 +831,23 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19335938" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19335938" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -850,7 +900,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -859,53 +909,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Port.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="782">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Application/TopologyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1462">
-          <caret line="44" column="97" selection-start-line="44" selection-start-column="97" selection-end-line="44" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2822">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
-            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
-            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="663">
-          <caret line="251" column="7" selection-start-line="251" selection-start-column="7" selection-end-line="251" selection-end-column="7" />
-          <folding>
-            <element signature="method#ResultsDatabase#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#createDatabase#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#saveLiveHostResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#savePortScanResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#savePacketResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#saveDevices#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnHostObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnPortObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnPacketObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnDeviceObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="e#8595#8679#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Host.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="850">
@@ -913,22 +916,21 @@
           <folding>
             <element signature="method#Host#0;class#Host#0" expanded="false" />
             <element signature="method#Host#1;class#Host#0" expanded="false" />
-            <element signature="method#generateTimeStamp#0;class#Host#0" expanded="false" />
-            <element signature="e#1377#1378#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.java">
@@ -1010,6 +1012,25 @@
             <element signature="method#returnPacketObjects#0;class#ResultsDatabase#0" expanded="false" />
             <element signature="method#returnDeviceObjects#0;class#ResultsDatabase#0" expanded="false" />
             <element signature="e#8595#8679#0" expanded="false" />
+            <marker date="1495927266987" expanded="true" signature="446:472" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="513:639" placeholder="CREATE TABLE..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="681:707" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="748:880" placeholder="CREATE TABLE..ports..." />
+            <marker date="1495927266987" expanded="true" signature="922:950" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="991:1171" placeholder="CREATE TABLE..packets..." />
+            <marker date="1495927266987" expanded="true" signature="1213:1241" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="1282:1417" placeholder="CREATE TABLE..devices..." />
+            <marker date="1495927266987" expanded="true" signature="1676:1716" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="2440:2480" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="3231:3279" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="4046:4085" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="4940:4959" placeholder="select * fro..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="5111:5130" placeholder="select * fro..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="5808:5840" placeholder="SELECT * FRO..ports..." />
+            <marker date="1495927266987" expanded="true" signature="6908:6929" placeholder="SELECT * FRO..packets..." />
+            <marker date="1495927266987" expanded="true" signature="7085:7106" placeholder="SELECT * FRO..packets..." />
+            <marker date="1495927266987" expanded="true" signature="7956:7977" placeholder="SELECT * FRO..devices..." />
+            <marker date="1495927266987" expanded="true" signature="8133:8154" placeholder="SELECT * FRO..devices..." />
           </folding>
         </state>
       </provider>
@@ -1021,22 +1042,21 @@
           <folding>
             <element signature="method#Host#0;class#Host#0" expanded="false" />
             <element signature="method#Host#1;class#Host#0" expanded="false" />
-            <element signature="method#generateTimeStamp#0;class#Host#0" expanded="false" />
-            <element signature="e#1377#1378#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.java">
@@ -1076,14 +1096,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/Incognito.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="4148">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/TopologyController.java">
@@ -1114,21 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="3145">
           <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/HeartBeatThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="935">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1169,20 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Host.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="method#Host#0;class#Host#0" expanded="false" />
-            <element signature="method#Host#1;class#Host#0" expanded="false" />
-            <element signature="method#generateTimeStamp#0;class#Host#0" expanded="false" />
-            <element signature="e#1377#1378#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Application/PacketAnalyserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="2278">
@@ -1197,55 +1188,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="663">
-          <caret line="209" column="42" selection-start-line="209" selection-start-column="42" selection-end-line="209" selection-end-column="42" />
-          <folding>
-            <element signature="method#ResultsDatabase#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#createDatabase#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#saveLiveHostResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#savePortScanResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#savePacketResults#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#saveDevices#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnHostObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnPortObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnPacketObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="method#returnDeviceObjects#0;class#ResultsDatabase#0" expanded="false" />
-            <element signature="e#8595#8679#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Ping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="935">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/MACScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/AvailableCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1268,41 +1214,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1989">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
-            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
-            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1377">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
           <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,44 +1232,183 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java">
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="901">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Host.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding>
+            <element signature="method#Host#0;class#Host#0" expanded="false" />
+            <element signature="method#Host#1;class#Host#0" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Help.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1377">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/AvailableCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/MACScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Ping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="935">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/NetworkMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1989">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-            <element signature="e#1270#1271#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
+            <element signature="method#blockRemover#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createICMPThreads#0;class#NetworkMapper#0" expanded="false" />
+            <element signature="method#createTCPThreads#0;class#NetworkMapper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Scan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1173">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/Target.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#271#272#0" expanded="false" />
+            <element signature="e#300#301#0" expanded="false" />
+            <element signature="e#325#326#0" expanded="false" />
+            <element signature="e#356#357#0" expanded="false" />
+            <element signature="e#383#384#0" expanded="false" />
+            <element signature="e#412#413#0" expanded="false" />
+            <element signature="e#437#438#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/UDPThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Threads/HeartBeatThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="935">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Database/ResultsDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="663">
+          <caret line="209" column="42" selection-start-line="209" selection-start-column="42" selection-end-line="209" selection-end-column="42" />
+          <folding>
+            <element signature="method#ResultsDatabase#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#createDatabase#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#saveLiveHostResults#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#savePortScanResults#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#savePacketResults#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#saveDevices#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#returnHostObjects#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#returnPortObjects#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#returnPacketObjects#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="method#returnDeviceObjects#0;class#ResultsDatabase#0" expanded="false" />
+            <element signature="e#8595#8679#0" expanded="false" />
+            <marker date="1495927266987" expanded="true" signature="446:472" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="513:639" placeholder="CREATE TABLE..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="681:707" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="748:880" placeholder="CREATE TABLE..ports..." />
+            <marker date="1495927266987" expanded="true" signature="922:950" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="991:1171" placeholder="CREATE TABLE..packets..." />
+            <marker date="1495927266987" expanded="true" signature="1213:1241" placeholder="DROP TABLE i..." />
+            <marker date="1495927266987" expanded="true" signature="1282:1417" placeholder="CREATE TABLE..devices..." />
+            <marker date="1495927266987" expanded="true" signature="1676:1716" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="2440:2480" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="3231:3279" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="4046:4085" placeholder="INSERT INTO ..." />
+            <marker date="1495927266987" expanded="true" signature="4940:4959" placeholder="select * fro..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="5111:5130" placeholder="select * fro..hosts..." />
+            <marker date="1495927266987" expanded="true" signature="5808:5840" placeholder="SELECT * FRO..ports..." />
+            <marker date="1495927266987" expanded="true" signature="6908:6929" placeholder="SELECT * FRO..packets..." />
+            <marker date="1495927266987" expanded="true" signature="7085:7106" placeholder="SELECT * FRO..packets..." />
+            <marker date="1495927266987" expanded="true" signature="7956:7977" placeholder="SELECT * FRO..devices..." />
+            <marker date="1495927266987" expanded="true" signature="8133:8154" placeholder="SELECT * FRO..devices..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/PortScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="3434">
-          <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="4182">
+          <caret line="130" column="39" selection-start-line="130" selection-start-column="39" selection-end-line="130" selection-end-column="39" />
           <folding>
             <element signature="method#createUDPThreads#0;class#PortScanner#0" expanded="false" />
-            <element signature="method#udpScan#0;class#PortScanner#0" expanded="false" />
-            <element signature="method#udpScan#1;class#PortScanner#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/GatewayScanner.java">
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Commands/ScanCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="901">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1071">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Incognito/src/Client/IpAddressValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Incognito/src/Client/Console.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81858903" vertical-offset="3791" max-vertical-offset="6562">
-          <caret line="268" column="9" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
+        <state vertical-scroll-proportion="-0.34266517" vertical-offset="2244" max-vertical-offset="6137">
+          <caret line="114" column="85" selection-start-line="114" selection-start-column="85" selection-end-line="114" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

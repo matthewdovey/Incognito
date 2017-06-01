@@ -80,25 +80,25 @@ public class PortScanner {
         return udpThreads;
     }
 
-    public void udpScan(Command command) {
-        UDPThread thread = new UDPThread("UDPThread1", ip, port);
-
-        ExecutorService threads = Executors.newFixedThreadPool(1);
-
-        threads.submit(thread);
-
-        threads.shutdown();
-
-        try {
-            //Forces application to wait for all threads to finish before proceeding
-            threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            if (thread.portCount() > 0) {
-                openPorts.putAll(thread.getPorts());
-            }
-
-        } catch (Exception e) {
-        }
-    }
+//    public void udpScan(Command command) {
+//        UDPThread thread = new UDPThread("UDPThread1", ip, port);
+//
+//        ExecutorService threads = Executors.newFixedThreadPool(1);
+//
+//        threads.submit(thread);
+//
+//        threads.shutdown();
+//
+//        try {
+//            //Forces application to wait for all threads to finish before proceeding
+//            threads.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+//            if (thread.portCount() > 0) {
+//                openPorts.putAll(thread.getPorts());
+//            }
+//
+//        } catch (Exception e) {
+//        }
+//    }
 
     public void udpScan(InetAddress ip, int fromPort, int toPort) {
         UDPThread[] udpThreads;
@@ -128,7 +128,7 @@ public class PortScanner {
         }
     }
 
-    public void udpScan(InetAddress ip, int... ports) {
+    public void udpScan(Command command) {
 
     }
 

@@ -11,7 +11,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,6 +29,7 @@ public class Console extends BorderPane{
     private Ping ping;
     private NetworkMapper mapper;
     private Command command;
+    private IpAddressValidator validator;
 
     public Console() {
         scanner = new PortScanner(this);
@@ -98,7 +98,7 @@ public class Console extends BorderPane{
                     }
                     break;
                 case "scan":
-                    if (lengthCheck(commandWords)) {
+                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
                         scan(commandWords);
                     } else {
                         helper.help(displayHistory, "scan");
@@ -112,7 +112,7 @@ public class Console extends BorderPane{
                     }
                     break;
                 case "ping":
-                    if (lengthCheck(commandWords)) {
+                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
                         ping(commandWords);
                     } else {
                         helper.help(displayHistory, "ping");
@@ -126,7 +126,7 @@ public class Console extends BorderPane{
                     }
                     break;
                 case "map":
-                    if (lengthCheck(commandWords)) {
+                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
                         mapper(commandWords);
                     } else {
                         helper.help(displayHistory, "map");
@@ -153,7 +153,7 @@ public class Console extends BorderPane{
                 }
                 break;
             case "scan":
-                if (commandWords.length < 2 || commandWords.length > 5) {
+                if (commandWords.length < 2) {
                     return false;
                 }
                 break;
@@ -188,6 +188,13 @@ public class Console extends BorderPane{
 
     private boolean rangeCheck(String number) {
         if (Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 255) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean portCheck(String port) {
+        if (Integer.parseInt(port) > 0 && Integer.parseInt(port) <= 65535) {
             return true;
         }
         return false;
@@ -245,9 +252,14 @@ public class Console extends BorderPane{
             } else if (commandWords.length == 5) {
                 command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[3]), Integer.parseInt(commandWords[3]));
                 scanner.udpScan(command);
-            } else if (commandWords.length == 6) {
-                //command = new ScanCommand()
-                //scanner.udpScan(command);
+            } else if (commandWords.length > 5) {
+                List<String> input = Arrays.asList(commandWords);
+
+                int[] ports = input.stream().skip(2).filter(x -> portCheck(x)).mapToInt(Integer::parseInt).toArray();
+
+                command = new ScanCommand(stringToIP(commandWords[1]), ports);
+
+                scanner.udpScan(command);
             } else {
                 helper.help(displayHistory, "scanner");
             }
@@ -262,7 +274,13 @@ public class Console extends BorderPane{
                 command = new ScanCommand(stringToIP(commandWords[1]), Integer.parseInt(commandWords[2]), Integer.parseInt(commandWords[3]));
                 scanner.tcpScan(command);
             } else if (commandWords.length > 4) {
-                Arrays.asList(commandWords).forEach(x -> rangeCheck(x));
+                List<String> input = Arrays.asList(commandWords);
+
+                int[] ports = input.stream().skip(2).filter(x -> portCheck(x)).mapToInt(Integer::parseInt).toArray();
+
+                command = new ScanCommand(stringToIP(commandWords[1]), ports);
+
+                scanner.tcpScan(command);
             } else {
                 helper.help(displayHistory, "scanner");
             }
@@ -270,11 +288,7 @@ public class Console extends BorderPane{
     }
 
     private void report(String[] commandWords) {
-        if (commandWords.length == 1) {
-            helper.help(displayHistory, "report");
-        } else {
-            List<String> followingCommands = Arrays.asList(commandWords).subList(1, commandWords.length);
-        }
+
     }
 
     private void exit() {
@@ -341,44 +355,5 @@ public class Console extends BorderPane{
         displayHistory.add(invalid);
         consoleOutput.setText(output);
         consoleOutput.setScrollTop(Double.MAX_VALUE);
-    }
-
-    private boolean isIP(String ip) {
-        //TODO: take arguments after scan and check if it is an IP address if the argument does not match any scan options
-        int count = 0;
-        if (ip.isEmpty()) {
-            return false;
-        }
-        for (int i = 0; i < ip.length(); i++) {
-            if (!Character.isDigit(ip.charAt(i))) {
-                if (ip.charAt(i) != '.') {
-                    if (ip.charAt(i) != '-') {
-                        return false;
-                    }
-                }
-            }
-        }
-        String[] segments = ip.split("\\.");
-        if (segments.length != 4) {
-            return false;
-        }
-        if (ip.contains("-")) {
-            for (String segment : segments) {
-                if (segment.contains("-")) {
-                    //TODO: might need to implement this into the for loop below as
-                    //TODO: the segment length check will return false as the length > 3
-                }
-                count++;
-            }
-            //TODO: I think I need to iterate through all of the segments, check which has the "-"
-            //TODO: remember which has and then act accordingly
-        }
-        for (String segment : segments) {
-            if (segment.length() < 1 || segment.length() > 3 || Integer.parseInt(segment) > 255 || Integer.parseInt(segment) < 0) {
-                displayErrorMessage();
-                return false;
-            }
-        }
-        return true;
     }
 }
