@@ -37,6 +37,7 @@ public class Console extends BorderPane{
         report = new Report();
         availableCommands = new AvailableCommands();
         mapper = new NetworkMapper(this);
+        validator = new IpAddressValidator();
 
         Config.setConsole(this);
 
@@ -50,7 +51,7 @@ public class Console extends BorderPane{
         setCenter(consoleOutput);
         setBottom(consoleInput);
 
-        displayPingResult("Incognito [version 1.0]");
+        printToConsole("Incognito [version 1.0]");
 
         consoleInput.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
@@ -94,13 +95,20 @@ public class Console extends BorderPane{
                     if (lengthCheck(commandWords)) {
                         help(commandWords);
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "help");
                     }
                     break;
                 case "scan":
-                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
-                        scan(commandWords);
+                    if (lengthCheck(commandWords)) {
+                        if (validator.isValid(commandWords[1])) {
+                            scan(commandWords);
+                        } else {
+                            invalidIPAddress();
+                            helper.help(displayHistory, "scan");
+                        }
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "scan");
                     }
                     break;
@@ -108,13 +116,20 @@ public class Console extends BorderPane{
                     if (lengthCheck((commandWords))) {
                         clear();
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "clear");
                     }
                     break;
                 case "ping":
-                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
-                        ping(commandWords);
+                    if (lengthCheck(commandWords)) {
+                        if (validator.isValid(commandWords[1])) {
+                            ping(commandWords);
+                        } else {
+                            invalidIPAddress();
+                            helper.help(displayHistory, "ping");
+                        }
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "ping");
                     }
                     break;
@@ -122,13 +137,20 @@ public class Console extends BorderPane{
                     if (lengthCheck(commandWords)) {
                         report(commandWords);
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "report");
                     }
                     break;
                 case "map":
-                    if (lengthCheck(commandWords) && validator.isValid(commandWords[1])) {
-                        mapper(commandWords);
+                    if (lengthCheck(commandWords)) {
+                        if (validator.isValid(commandWords[1])) {
+                            mapper(commandWords);
+                        } else {
+                            invalidIPAddress();
+                            helper.help(displayHistory, "map");
+                        }
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "map");
                     }
                     break;
@@ -136,12 +158,13 @@ public class Console extends BorderPane{
                     if (lengthCheck(commandWords)) {
                         exit();
                     } else {
+                        invalidNumberOfArguments();
                         helper.help(displayHistory, "exit");
                     }
                     break;
             }
         } else {
-            displayErrorMessage();
+            invalidCommand();
         }
     }
 
@@ -186,13 +209,6 @@ public class Console extends BorderPane{
         return true;
     }
 
-    private boolean rangeCheck(String number) {
-        if (Integer.parseInt(number) > 0 && Integer.parseInt(number) <= 255) {
-            return true;
-        }
-        return false;
-    }
-
     private boolean portCheck(String port) {
         if (Integer.parseInt(port) > 0 && Integer.parseInt(port) <= 65535) {
             return true;
@@ -225,6 +241,7 @@ public class Console extends BorderPane{
 
     private void mapper(String[] commandWords) {
         if (commandWords.length == 2) {
+            System.out.println("Mapper");
             command = new MapCommand(stringToIP(commandWords[1]));
             mapper.map(command);
 
@@ -265,6 +282,7 @@ public class Console extends BorderPane{
             }
         } else {
             if (commandWords.length == 2) {
+                System.out.println("here");
                 command = new ScanCommand(stringToIP(commandWords[1]));
                 scanner.tcpScan(command);
             } else if (commandWords.length == 3) {
@@ -295,16 +313,19 @@ public class Console extends BorderPane{
         Platform.exit();
     }
 
-    public void displayPingResults(HashMap<String, String> results) {
+    public void printToConsole(String output) {
+        consoleOutput.setText(output);
+        consoleOutput.setScrollTop(Double.MAX_VALUE);
+    }
+
+    public void displayLiveHosts(HashMap<String, String> results) {
         results.forEach((k, v) -> displayHistory.add(v + " " + k));
         updateOutput();
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
     public void displayPingResult(String result) {
         displayHistory.add(result);
         updateOutput();
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
 //    public void displayPortResults(HashMap<Integer, String> results) {
@@ -314,10 +335,8 @@ public class Console extends BorderPane{
 //    }
 
     public void displayPortResults(Port[] ports) {
-        System.out.println("Trying to display port results...");
         int i = 0;
         for (Port port : ports) {
-            System.out.println("Port " + i++ + ": " + port.getPort());
             displayHistory.add("Port " + i++ + ": " + port.getPort());
         }
         updateOutput();
@@ -329,31 +348,39 @@ public class Console extends BorderPane{
         for (String command : displayHistory) {
             output += command + "\n";
         }
-        consoleOutput.setText(output);
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
+        printToConsole(output);
     }
 
-    private void displayErrorMessage() {
-        String invalid = "Invalid command entered...";
+    private void invalidCommand() {
+        String invalid = "Invalid command entered";
         String output = "";
         for (String command : displayHistory) {
             output += command + "\n";
         }
         output += invalid;
         displayHistory.add(invalid);
-        consoleOutput.setText(output);
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
+        printToConsole(output);
     }
 
-    private void displayIpErrorMessage() {
-        String invalid = "Invalid ip entered...";
+    private void invalidIPAddress() {
+        String invalid = "Invalid ip entered";
         String output = "";
         for (String command : displayHistory) {
             output += command + "\n";
         }
         output += invalid;
         displayHistory.add(invalid);
-        consoleOutput.setText(output);
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
+        printToConsole(output);
+    }
+
+    private void invalidNumberOfArguments() {
+        String invalid = "Invalid number of arguments entered";
+        String output = "";
+        for (String command : displayHistory) {
+            output += command + "\n";
+        }
+        output += invalid;
+        displayHistory.add(invalid);
+        printToConsole(output);
     }
 }

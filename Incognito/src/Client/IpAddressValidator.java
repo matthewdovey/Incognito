@@ -8,7 +8,7 @@ public class IpAddressValidator {
         if (address.matches(regex)) {
             String[] segments = address.split("\\.");
             for (String segment : segments) {
-                if (Integer.parseInt(segment) > 255 || Integer.parseInt(segment) <= 0) {
+                if (Integer.parseInt(segment) > 255 || Integer.parseInt(segment) < 0) {
                     return false;
                 }
             }

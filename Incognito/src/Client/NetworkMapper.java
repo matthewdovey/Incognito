@@ -29,7 +29,7 @@ public class NetworkMapper {
     }
 
     public void map(Command command) {
-        ArrayList<ICMPThread> threads = createICMPThreads(command);
+        ArrayList<ICMPThread> threads = createICMPThreads((MapCommand) command);
 
         final ExecutorService executor = Executors.newFixedThreadPool(threads.size());
 
@@ -45,7 +45,7 @@ public class NetworkMapper {
 
         threads.stream().filter(s -> s.liveHosts() > 0).forEach(s -> liveHosts.putAll(s.getHosts()));
 
-        console.displayPingResults(liveHosts);
+        console.displayLiveHosts(liveHosts);
 
         //Creating host objects from the results of the scan
         int index = 0;
@@ -86,7 +86,7 @@ public class NetworkMapper {
 
         threads.stream().filter(s -> s.liveHosts() > 0).forEach(s -> liveHosts.putAll(s.getHosts()));
 
-        console.displayPingResults(liveHosts);
+        console.displayLiveHosts(liveHosts);
 
         //Creating host objects from the results of the scan
         int index = 0;
@@ -110,7 +110,7 @@ public class NetworkMapper {
         updateDatabase(hosts);
     }
 
-    private <T extends Command> ArrayList<ICMPThread> createICMPThreads(T command) {
+    private ArrayList<ICMPThread> createICMPThreads(MapCommand command) {
         ArrayList<ICMPThread> threads = new ArrayList<>(command.getEnd() - command.getStart());
 
         String address = blockRemover(command.getAddress().getHostAddress());
