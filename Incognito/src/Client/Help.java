@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class Help {
 
-    public Help() {
+    private Console console;
 
+    public Help(Console console) {
+        this.console = console;
     }
 
     public void helpMenu(ArrayList<String> displayHistory) {
@@ -17,8 +19,7 @@ public class Help {
         }
         output += helpMenu;
         displayHistory.add(helpMenu);
-        Console.consoleOutput.setText(output);
-        Console.consoleOutput.setScrollTop(Double.MAX_VALUE);
+        console.printToConsole(output);
     }
 
     public void help(ArrayList<String> displayHistory, String filter) {
@@ -69,7 +70,6 @@ public class Help {
         }
         output += specificHelp;
         displayHistory.add(specificHelp);
-        Console.consoleOutput.setText(output);
-        Console.consoleOutput.setScrollTop(Double.MAX_VALUE);
+        console.printToConsole(output);
     }
 }

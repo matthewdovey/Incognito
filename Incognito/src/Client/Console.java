@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Console extends BorderPane{
     private TextField consoleInput;
-    public static TextArea consoleOutput;
+    private TextArea consoleOutput;
     private ArrayList<String> consoleHistory;
     private ArrayList<String> displayHistory;
     private int index = 0;
@@ -33,7 +33,7 @@ public class Console extends BorderPane{
 
     public Console() {
         scanner = new PortScanner(this);
-        helper = new Help();
+        helper = new Help(this);
         report = new Report();
         availableCommands = new AvailableCommands();
         mapper = new NetworkMapper(this);
@@ -328,19 +328,12 @@ public class Console extends BorderPane{
         updateOutput();
     }
 
-//    public void displayPortResults(HashMap<Integer, String> results) {
-//        results.forEach((k, v) -> displayHistory.add("Port " + k + ": " + v));
-//        updateOutput();
-//        consoleOutput.setScrollTop(Double.MAX_VALUE);
-//    }
-
     public void displayPortResults(Port[] ports) {
         int i = 0;
         for (Port port : ports) {
             displayHistory.add("Port " + i++ + ": " + port.getPort());
         }
         updateOutput();
-        consoleOutput.setScrollTop(Double.MAX_VALUE);
     }
 
     private void updateOutput() {

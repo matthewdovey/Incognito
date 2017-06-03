@@ -23,7 +23,7 @@ public class Ping {
         try {
             this.ip = InetAddress.getByName(ip);
         } catch (UnknownHostException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         sent = 0;
         lost = 0;
