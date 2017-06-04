@@ -92,7 +92,7 @@ public class PacketSniffer {
                     }
                 };
                 //we enter the loop and capture the 10 packets here.You can  capture any number of packets just by changing the first argument to pcap.loop() function below
-                pcap.loop(10, jpacketHandler, "jnetpcap rocks!");
+                pcap.loop(numberOfPackets, jpacketHandler, "jnetpcap rocks!");
                 //Close the pcap
                 pcap.close();
             }

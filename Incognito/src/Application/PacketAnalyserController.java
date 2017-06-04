@@ -40,7 +40,7 @@ public class PacketAnalyserController {
     }
 
     public void start() {
-
+        packetSniffer.sniff(10);
     }
 
 
