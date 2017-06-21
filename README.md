@@ -1,8 +1,17 @@
 # Incognito
 
-Incognito is a security tool built in Java, used to assess vulnerable machines on a network and provide solutions
+Incognito is a security tool built in Java and JavaFX, used to assess vulnerable machines on a network and provide solutions.
 
 ![Alt text](/Images/Incognito.png?raw=true "Incognito")
+
+Available Commands
+- help
+- scan
+- ping
+- map
+- clear
+- report
+- exit
 
 Map Command Demonstration - Network Mapping
 
