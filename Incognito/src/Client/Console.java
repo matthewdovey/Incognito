@@ -282,7 +282,6 @@ public class Console extends BorderPane{
             }
         } else {
             if (commandWords.length == 2) {
-                System.out.println("here");
                 command = new ScanCommand(stringToIP(commandWords[1]));
                 scanner.tcpScan(command);
             } else if (commandWords.length == 3) {
